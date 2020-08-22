@@ -1,0 +1,60 @@
+{
+    "coc.preferences.formatOnType": false,
+    "coc.preferences.formatOnInsertLeave": false,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "html",
+        "json",
+        "css",
+        "scss",
+        "go"
+    ],
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": "!",
+    "diagnostic.infoSign": "?",
+    "snippets.ultisnips.enable": true,
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "custom-snippets"
+    ],
+    "languageserver": {
+        "go": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod"
+            ],
+            "filetypes": [
+                "go"
+            ],
+            "initializationOptions": {
+                "buildFlags": [
+                    "-tags=integration"
+                ],
+                "usePlaceholders": false,
+                "gofumpt": false,
+                "local": "cd.splunkdev.com",
+                "staticcheck": true
+            },
+            "progressOnInitialization": false
+        }
+    },
+    "suggest.noselect": false,
+    "suggest.enablePreview": true,
+    "suggest.floatEnable": true,
+    "diagnostic.refreshOnInsertMode": false,
+    "go.tags": {
+        "skipUnexported": true,
+        "transform": "camelcase"
+    },
+    "go.goplsOptions": {
+        "buildFlags": [
+            "-tags=integration"
+        ],
+        "usePlaceholders": false,
+        "gofumpt": true,
+        "local": "cd.splunkdev.com",
+        "staticcheck": true
+    },
+    "go.checkForUpdates": "install"
+}

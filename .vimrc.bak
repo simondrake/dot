@@ -1,0 +1,108 @@
+set nocompatible
+
+" autoload Plug if needed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle')
+" Plugins
+Plug 'junegunn/vim-plug'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" Plug 'sheerun/vim-polyglot'
+" Plug 'editorconfig/editorconfig-vim'
+" Plug 'raimondi/delimitmate'
+" Plug 'ap/vim-css-color'
+" Plug 'dense-analysis/ale'
+" Plug 'quramy/tsuquyomi'
+Plug 'frazrepo/vim-rainbow'
+Plug '/usr/local/opt/fzf'
+Plug 'terryma/vim-multiple-cursors'
+
+" Themes
+" Plug 'nlknguyen/papercolor-theme'
+" Plug 'joshdick/onedark.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+
+call plug#end()
+
+syntax on " enable highlighting
+set number " enable line numbers
+
+set backspace=indent,eol,start " let backspace delete over lines
+
+set autoindent " enable auto indentation of lines
+set smartindent " allow vim to best-effort guess the indentation
+set pastetoggle=<F2> " enable paste mode (more on this below)
+
+" set indent for 2 spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" enable mouse support
+set mouse=a
+set clipboard=unnamed,unnamedplus
+
+" Show autocomplete box on dot (.)
+au filetype go inoremap <buffer> . .<C-x><C-o>
+" Don't select first entry, type to find the right one.
+set completeopt=longest,menuone
+
+" Show whitespace characters
+set list
+set listchars=tab:>-
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+
+" vim options that make plugins better
+set updatetime=100
+set laststatus=2
+
+" Omnifunction
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" Split
+nnoremap <C-H> <C-W><C-H> " LEFT - ctrl-h instead of ctrl-w then h
+nnoremap <C-J> <C-W><C-J> " DOWN - ctrl-j instead of ctrl-w then j
+nnoremap <C-K> <C-W><C-K> " UP - ctrl-k instead of ctrl-w then k
+nnoremap <C-L> <C-W><C-L> " RIGHT - ctrl-l instead of ctrl-w then l
+set splitbelow
+set splitright
+
+" Nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-t> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NERDTree git plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+" enable rainbow parens for everything
+let g:rainbow_active = 1
+
+set belloff=all
