@@ -6,7 +6,7 @@
 
 ## Cloning into home directory
 
-* `git remote add origin https://github.com/simondrake/dot-files.git`
+* `git remote add origin https://github.com/simondrake/dot.git`
 * `git pull`
 
 ## Other Steps
