@@ -118,37 +118,55 @@ au Syntax * RainbowParenthesesLoadBraces
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-go
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" disable all linters as that is taken care of by coc.nvim
-let g:go_diagnostics_enabled = 0
-let g:go_metalinter_enabled = []
+
+"--------------------------------------------------------------
+" => Disable LSP functions (handled by coc.nvim)
+"--------------------------------------------------------------
+
+let g:go_gopls_enabled = 0                      " gopls
+let g:go_def_mapping_enabled = 0                " :GoDef (gd) shortcut
+let g:go_doc_keywordprg_enabled = 0             " :GoDoc (K)
+let g:go_code_completion_enabled = 0
+let g:go_auto_sameids = 0
+let g:go_def_mapping_enabled = 0
+let g:go_diagnostics_enabled = 0                " Linter
+let g:go_metalinter_enabled = 0                 " Linter
+let g:go_echo_go_info = 0
+let g:go_highlight_build_constraints = 0
+let g:go_highlight_extra_types = 0
+let g:go_highlight_fields = 0
+let g:go_highlight_functions = 0
+let g:go_highlight_function_calls = 0
+let g:go_highlight_generate_tags = 0
+let g:go_highlight_methods = 0
+let g:go_highlight_operators = 0
+let g:go_highlight_structs = 0
+let g:go_highlight_types = 0
+" let g:go_fmt_autosave = 0                     " fmt on save
+
+"--------------------------------------------------------------
+" => Old settings (just in case I go back)
+"--------------------------------------------------------------
+
 " don't jump to errors after metalinter is invoked
-let g:go_jump_to_error = 0
-" Disable fmt on save as it's handled by coc.nvim
-" let g:go_fmt_autosave = 0
+" let g:go_jump_to_error = 0
 " run go imports on file save
 let g:go_fmt_command = "goimports"
 " automatically highlight variable your cursor is on
-let g:go_auto_sameids = 0
+" let g:go_auto_sameids = 0
 " Syntax highlighting
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-" disable (K) :GoDoc mapping to let coc.nvim handle it
-let g:go_doc_keywordprg_enabled = 0
-" Disable vim-go LSP support - let coc.nvim handle it
-let g:go_gopls_enabled = 1
-" disable vim-go :GoDef short cut (gd)
-" this is handled by coc.nvim
-let g:go_def_mapping_enabled = 0
+"let g:go_highlight_types = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_function_calls = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_extra_types = 1
+"let g:go_highlight_build_constraints = 1
+"let g:go_highlight_generate_tags = 1
 " Temporary to test
-let g:go_auto_type_info = 1     " show the type info (|:GoInfo|) for the word under the cursor automatically.
-let g:go_highlight_diagnostic_errors = 1
-let g:go_highlight_diagnostic_warnings = 1
+" let g:go_auto_type_info = 1     " show the type info (|:GoInfo|) for the word under the cursor automatically.
+" let g:go_highlight_diagnostic_errors = 1
+" let g:go_highlight_diagnostic_warnings = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nord
