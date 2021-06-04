@@ -59,7 +59,7 @@ call plug#begin('~/.config/nvim/plugged')
 " }
 
 " Language Support {
-" Plug 'sheerun/vim-polyglot'
+"  Plug 'sheerun/vim-polyglot'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'google/vim-jsonnet'
   Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
