@@ -1,6 +1,5 @@
 {
     "coc.preferences.formatOnType": false,
-    "coc.preferences.formatOnInsertLeave": false,
     "coc.preferences.formatOnSaveFiletypes": [
         "javascript",
         "html",
@@ -32,16 +31,17 @@
                     "-tags=integration"
                 ],
                 "usePlaceholders": false,
-                "gofumpt": false,
+                "gofumpt": true,
                 "local": "cd.splunkdev.com",
                 "staticcheck": true
             },
             "progressOnInitialization": false
         }
     },
-    "suggest.noselect": false,
+    "suggest.noselect": true,
     "suggest.enablePreview": true,
     "suggest.floatEnable": true,
+    "hover.target": "float",
     "diagnostic.refreshOnInsertMode": false,
     "go.tags": {
         "skipUnexported": true,

@@ -27,7 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
 "  Plug 'terryma/vim-multiple-cursors' " Deprecated - https://github.com/terryma/vim-multiple-cursors/issues/314
   Plug 'mg979/vim-visual-multi', {'branch': 'master'}
   Plug 'tyru/current-func-info.vim'
-  Plug 'tpope/vim-surround'
+"  Plug 'tpope/vim-surround'
 " }
 
 " Formatting {
@@ -35,7 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tmsvg/pear-tree'			" Auto-pair brackets
   Plug 'tpope/vim-sleuth'			" Auto detect indentation settings
   Plug 'vim-airline/vim-airline' 		" Statusline
-  Plug 'kien/rainbow_parentheses.vim'
+"  Plug 'kien/rainbow_parentheses.vim'
   " Plug 'tpope/vim-commentary'   " Comments
   Plug 'vim-scripts/tComment'
 " }
@@ -51,7 +51,7 @@ call plug#begin('~/.config/nvim/plugged')
 " }
 
 " Navigation {
-  Plug 'preservim/nerdtree'
+"  Plug 'preservim/nerdtree'
 " }
 
 " Theme {
@@ -66,7 +66,7 @@ call plug#begin('~/.config/nvim/plugged')
 " }
 
 " Testing {
-  Plug 'vim-test/vim-test'
+"  Plug 'vim-test/vim-test'
 " }
 
 " Debugging {
@@ -89,31 +89,36 @@ autocmd VimEnter *
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-gitgutter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_sign_priority = 10
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => rainbow_parentheses
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ['brown',       'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ]
+"let g:rbpt_max = 16
+"let g:rbpt_loadcmd_toggle = 0
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-go
@@ -195,8 +200,8 @@ let g:pear_tree_map_special_keys = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>k :NERDTreeToggle<CR>
-nnoremap <silent> <leader>y :NERDTreeFind<CR>
+" nnoremap <silent> <leader>k :NERDTreeToggle<CR>
+" nnoremap <silent> <leader>y :NERDTreeFind<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-multiple-cursors
@@ -211,4 +216,12 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimspector
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Raise the priority of the breakpoint symbol to be higher than vim-gitgutter
+" sign priority
+let g:vimspector_sign_priority = { 'vimspectorBP': 11, 'vimspectorBPDisabled': 9 }
 

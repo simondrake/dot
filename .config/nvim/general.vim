@@ -10,7 +10,6 @@ set backspace=indent,eol,start  " Makes backspace key more powerful.
 set laststatus=2                " Show status line always
 set autoindent                  " Enable Autoindent
 set incsearch                   " Shows the match while typing
-set hlsearch                    " Highlight found searches
 set noerrorbells                " No beeps
 set number                      " Show line numbers
 set noswapfile                  " Don't use swapfile
@@ -22,6 +21,9 @@ set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not if it begins with upper case
 set completeopt=menu,menuone    " Show popup menu, even if there is one entry
 set cursorline                  " Highlight the line containing the cursor
+
+" set hlsearch                    " Highlight found searches - enable this OR nohlsearch
+:set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
 
 " make the cursor nice
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor

@@ -61,3 +61,6 @@ nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 nnoremap <leader>dd "_dd
 xnoremap <leader>dd "_dd
+
+inoremap <leader>fs <esc>:GoFillStruct<CR>
+nnoremap <leader>fs :GoFillStruct<CR>

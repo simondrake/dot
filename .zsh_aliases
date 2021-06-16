@@ -5,7 +5,7 @@
 
 alias vf='vim $(fzf)'
 # Only show modified/deleted files
-alias gvf='vim $(git ls-files -md | fzf --bind "f1:execute(vim {} < /dev/tty > /dev/tty 2>&1)")'
+alias gvf='vim $(git ls-files -md --full-name | fzf --bind "f1:execute(vim {} < /dev/tty > /dev/tty 2>&1)")'
 
 # Search hidden files, skip version control ignore files, case-insensitive
 alias agi='ag --hidden --skip-vcs-ignore --ignore-case --ignore ".git"'

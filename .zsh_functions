@@ -19,3 +19,7 @@ function _makefile_targets {
 complete -F _makefile_targets make
 
 
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
