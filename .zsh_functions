@@ -1,3 +1,4 @@
+# Auto-complete Makefile targets
 function _makefile_targets {
     local curr_arg;
     local targets;
@@ -18,8 +19,34 @@ function _makefile_targets {
 }
 complete -F _makefile_targets make
 
-
+# Time ZSH initialisation
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
+
+######## GIT ############
+# The name of the current branch
+# Back-compatibility wrapper for when this function was defined here in
+# the plugin, before being pulled in to core lib/git.zsh as git_current_branch()
+# to fix the core -> git plugin dependency.
+function current_branch() {
+  git_current_branch
+}
+
+# Delete branches that aren't the main branch
+function clear_branches() {
+  for i in $(git branch | grep -v -i 'mainline'); do git branch -D "$i"; done
+}
+
+# Checkout the main branch
+function gcmain() {
+  git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+}
+
+# Rebase HEAD~N
+grih() {
+	git rebase --interactive HEAD~$1
+}
+
+mkcd () { mkdir -p "$@" && cd "$_"; }

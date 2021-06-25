@@ -61,19 +61,6 @@ alias kgp="kubectl get pods"
 alias kgcj="kubectl get cronjobs"
 
 ######## GIT ############
-# The name of the current branch
-# Back-compatibility wrapper for when this function was defined here in
-# the plugin, before being pulled in to core lib/git.zsh as git_current_branch()
-# to fix the core -> git plugin dependency.
-function current_branch() {
-  git_current_branch
-}
-
-function clear_branches() {
-  for i in $(git branch | grep -v -i 'mainline'); do git branch -D "$i"; done
-}
-
-
 alias g='git'
 
 alias ga='git add'
@@ -87,7 +74,6 @@ alias gbD='git branch -D'
 alias gc='git commit -v'
 alias gcb='git checkout -b'
 # alias gcm='git checkout master'
-alias gcm='git checkout mainline'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gcor='git checkoutr'
@@ -127,11 +113,6 @@ alias gpf!='git push --force'
 
 alias gri="git rebase --interactive"
 alias grio="git rebase --interactive origin"
-
-grih() {
-	git rebase --interactive HEAD~$1
-}
-
 
 alias gs='git status'
 
@@ -207,5 +188,3 @@ alias mt="make test"
 alias mit="make integration-test"
 
 alias updateCloudctl="brew update && brew upgrade toolbox/tap/cloudctl"
-
-mkcd () { mkdir -p "$@" && cd "$_"; }

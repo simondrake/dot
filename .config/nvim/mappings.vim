@@ -56,11 +56,9 @@ nmap <silent> [p :pu!<CR>
 " Map escape work properly in terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-" delete into the blackhole register
-nnoremap <leader>d "_d
-xnoremap <leader>d "_d
-nnoremap <leader>dd "_dd
-xnoremap <leader>dd "_dd
+noremap <Leader>y "*y
+noremap <Leader>yy "*yy
+noremap <Leader>yi "*yi
 
 inoremap <leader>fs <esc>:GoFillStruct<CR>
 nnoremap <leader>fs :GoFillStruct<CR>

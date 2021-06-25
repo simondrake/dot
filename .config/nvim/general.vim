@@ -23,7 +23,7 @@ set completeopt=menu,menuone    " Show popup menu, even if there is one entry
 set cursorline                  " Highlight the line containing the cursor
 
 " set hlsearch                    " Highlight found searches - enable this OR nohlsearch
-:set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
+set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
 
 " make the cursor nice
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
@@ -37,7 +37,7 @@ endif
 autocmd BufWritePre * FixWhitespace
 
 set mouse+=a " Don't select/copy line numbers
-set clipboard^=unnamed,unnamedplus
+" set clipboard^=unnamed,unnamedplus
 
 let mapleader = ","
 
