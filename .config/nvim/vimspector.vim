@@ -19,6 +19,11 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 " Run :VimspectorInstall to install adapters
 let g:vimspector_install_gadgets = [ 'vscode-go' ]
 
+let g:vimspector_base_dir=expand('$HOME/.vim/vimspector-config')
+
+" Run test under cursor
+nnoremap <leader>ct :call vimspector#LaunchWithSettings( {'configuration': 'test-current-test', 'lineNumber': line('.')} )<cr>
+
 "===========================================
 "=> Human Mode Defaults
 "===========================================

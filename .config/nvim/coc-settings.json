@@ -1,60 +1,56 @@
 {
-    "coc.preferences.formatOnType": false,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "javascript",
-        "html",
-        "json",
-        "css",
-        "scss",
-        "go"
-    ],
-    "diagnostic.checkCurrentLine": true,
-    "diagnostic.errorSign": "✘",
-    "diagnostic.warningSign": "!",
-    "diagnostic.infoSign": "?",
-    "snippets.ultisnips.enable": true,
-    "snippets.ultisnips.directories": [
-        "UltiSnips",
-        "custom-snippets"
-    ],
-    "languageserver": {
-        "go": {
-            "command": "gopls",
-            "rootPatterns": [
-                "go.mod"
-            ],
-            "filetypes": [
-                "go"
-            ],
-            "initializationOptions": {
-                "buildFlags": [
-                    "-tags=integration"
-                ],
-                "usePlaceholders": false,
-                "gofumpt": true,
-                "local": "cd.splunkdev.com",
-                "staticcheck": true
-            },
-            "progressOnInitialization": false
-        }
-    },
-    "suggest.noselect": true,
-    "suggest.enablePreview": true,
-    "suggest.floatEnable": true,
-    "hover.target": "float",
-    "diagnostic.refreshOnInsertMode": false,
-    "go.tags": {
-        "skipUnexported": true,
-        "transform": "camelcase"
-    },
-    "go.goplsOptions": {
-        "buildFlags": [
-            "-tags=integration"
-        ],
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "js",
+    "javascriptreact",
+    "jsx",
+    "html",
+    "json",
+    "css",
+    "scss",
+    "go"
+  ],
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "?",
+  "snippets.ultisnips.enable": true,
+  "snippets.ultisnips.directories": ["UltiSnips", "custom-snippets"],
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "buildFlags": ["-tags=integration"],
         "usePlaceholders": false,
         "gofumpt": true,
         "local": "cd.splunkdev.com",
         "staticcheck": true
-    },
-    "go.checkForUpdates": "install"
+      },
+      "progressOnInitialization": false
+    }
+  },
+  "suggest.noselect": true,
+  "suggest.enablePreview": true,
+  "suggest.floatEnable": true,
+  "hover.target": "float",
+  "diagnostic.refreshOnInsertMode": false,
+  "go.tags": {
+    "skipUnexported": true,
+    "transform": "camelcase"
+  },
+  "go.goplsOptions": {
+    "buildFlags": ["-tags=integration"],
+    "usePlaceholders": false,
+    "gofumpt": true,
+    "local": "cd.splunkdev.com",
+    "staticcheck": true
+  },
+  "go.checkForUpdates": "install",
+  "tsserver.formatOnType": true,
+  "eslint.format.enable": true,
+  "eslint.autoFixOnSave": true,
+  "prettier.singleQuote": true
 }

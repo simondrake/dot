@@ -12,7 +12,9 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-json',
 \ 'coc-go',
-\ 'coc-css'
+\ 'coc-css',
+\ 'coc-tsserver',
+\ 'coc-eslint'
 \ ]
 
 call plug#begin('~/.config/nvim/plugged')
