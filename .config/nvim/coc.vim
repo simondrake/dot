@@ -59,11 +59,12 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references-used)
 
 let g:coc_enable_locationlist = 0
-autocmd User CocLocationsChange CocList --no-quit --normal location
+autocmd User CocLocationsChange CocList --normal location
+"autocmd User CocLocationsChange CocList --no-quit --normal location
 
-nmap <silent> gr <Plug>(coc-references-used)
 nnoremap <C-P> :CocNext<cr>
 nnoremap <C-Y> :CocPrev<cr>
 
