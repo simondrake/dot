@@ -23,3 +23,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Install watchman - useful for coc - https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#optional-install-watchman-for-file-watching
 brew install watchman
+
+# Install packer
+git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim

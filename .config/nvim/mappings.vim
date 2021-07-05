@@ -45,9 +45,6 @@ set splitright
 " current-func-info
 nnoremap <silent> <leader>q :echo cfi#format("%s", "")<CR>
 
-" Close all popups
-imap <expr><C-E> :call CocAction('coc#float#close_all()')
-
 " Paste below
 nmap <silent> ]p :pu<CR>
 " Paste Above
