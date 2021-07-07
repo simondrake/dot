@@ -23,8 +23,10 @@ set nohlsearch                 " Don't highlight found searches - enable this OR
 let g:tokyodark_transparent_background = 0
 let g:tokyodark_enable_italic_comment = 1
 let g:tokyodark_enable_italic = 1
-let g:tokyodark_color_gamma = "1.5" 		" Adjust the brightness
+let g:tokyodark_color_gamma = "1.0" 		" Adjust the brightness
 colorscheme tokyodark
+hi Comment ctermbg=16 guibg=#ffffff
+
 
 " tabs and indents
 set expandtab
@@ -58,7 +60,7 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 
 " Strip whitespace on save
-autocmd BufWritePre * TrimWhitespace
+" autocmd BufWritePre * TrimWhitespace
 
 " Show whitespace characters
 set list

@@ -57,5 +57,19 @@ noremap <Leader>y "*y
 noremap <Leader>yy "*yy
 noremap <Leader>yi "*yi
 
+noremap <Leader>p "*p
+noremap <Leader>pp "*pp
+noremap <Leader>pi "*pi
+
 inoremap <leader>fs <esc>:GoFillStruct<CR>
 nnoremap <leader>fs :GoFillStruct<CR>
+
+" function! ProfileStart()
+"   :profile start profile.log
+"   :profile func *
+"   :profile file *
+" endfunction
+"
+" function! ProfileStop()
+"   :profile stop
+" endfunction

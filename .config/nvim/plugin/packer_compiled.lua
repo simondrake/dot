@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/current-func-info.vim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+  },
   fzf = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/fzf"
@@ -89,13 +93,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
-  nerdtree = {
-    loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nerdtree"
-  },
   ["nvim-compe"] = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-lsp-ts-utils"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/opt/nvim-lsp-ts-utils"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -117,9 +122,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
-  ["rainbow_parentheses.vim"] = {
+  ["pear-tree"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/rainbow_parentheses.vim"
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/pear-tree"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   tComment = {
     loaded = true,
@@ -133,22 +142,34 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/tokyodark.nvim"
   },
+  vim = {
+    loaded = true,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
   },
   ["vim-markdown"] = {
     loaded = false,
     needs_bufread = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/opt/vim-markdown"
   },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
+  },
   ["vim-sensible"] = {
     loaded = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-sensible"
-  },
-  ["vim-sleuth"] = {
-    loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-sleuth"
   },
   ["vim-trailing-whitespace"] = {
     loaded = true,
@@ -173,6 +194,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-lsp-ts-utils'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
