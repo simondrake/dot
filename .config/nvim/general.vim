@@ -1,4 +1,4 @@
-" Use Vim settings, rather then Vi settings (much better!).
+ " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
@@ -7,7 +7,7 @@ set noerrorbells                " No beeps
 set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set splitright                  " Vertical windows should be split to right
-" set number                      " Show line numbers
+set number                      " Show line numbers
 set relativenumber              " Setting number and relativenumber enables hybrid mode
 set splitbelow                  " Horizontal windows should split to bottom
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
@@ -16,6 +16,8 @@ set completeopt=menuone,noselect
 set cursorline                  " Highlight the line containing the cursor
 set t_Co=256
 set redrawtime=10000
+set autoindent
+filetype plugin indent on
 
 " set hlsearch                    " Highlight found searches - enable this OR nohlsearch
 set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
@@ -26,7 +28,6 @@ let g:tokyodark_enable_italic_comment = 1
 let g:tokyodark_enable_italic = 1
 let g:tokyodark_color_gamma = "1.0" 		" Adjust the brightness
 colorscheme tokyodark
-hi Comment ctermbg=16 guibg=#ffffff
 
 " tabs and indents
 set expandtab
@@ -60,7 +61,7 @@ endfun
 command! TrimWhitespace call TrimWhitespace()
 
 " Strip whitespace on save
-" autocmd BufWritePre * TrimWhitespace
+autocmd BufWritePre * TrimWhitespace
 
 " Show whitespace characters
 set list
@@ -81,8 +82,6 @@ function! WindowNumber()
     return str
 endfunction
 
-" Set comment colour to LightBlue
-hi Comment ctermfg=LightBlue
 
 " If you don't want to exclude hidden files, use the following command
 " --files-with-matches only print filenames with matches

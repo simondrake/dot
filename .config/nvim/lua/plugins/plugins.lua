@@ -49,9 +49,11 @@ require('packer').startup(function(use)
   -- }
 
   -- UI {
-  use { 'tiagovla/tokyodark.nvim' }
+  -- use { 'tiagovla/tokyodark.nvim' }
+  use { 'simondrake/tokyodark.nvim' }
   use { 'monsonjeremy/onedark.nvim' }
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
+  use { 'norcalli/nvim-colorizer.lua' }
   -- use { 'p00f/nvim-ts-rainbow' }
   -- }
 
@@ -63,4 +65,5 @@ require('packer').startup(function(use)
   -- Debugging {
   use { 'puremourning/vimspector' }
   -- }
+
 end)

@@ -12,6 +12,7 @@ require('plugins/peartree')
 require('plugins/vimspector')
 require('plugins/mappings')
 require('plugins/treesitter')
+require('plugins/colorizer')
 
 --################
 --> LSP
