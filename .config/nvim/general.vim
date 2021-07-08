@@ -4,10 +4,11 @@ set nocompatible
 
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set noerrorbells                " No beeps
-set number                      " Show line numbers
 set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set splitright                  " Vertical windows should be split to right
+" set number                      " Show line numbers
+set relativenumber              " Setting number and relativenumber enables hybrid mode
 set splitbelow                  " Horizontal windows should split to bottom
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 set ignorecase                  " Search case insensitive...
@@ -26,7 +27,6 @@ let g:tokyodark_enable_italic = 1
 let g:tokyodark_color_gamma = "1.0" 		" Adjust the brightness
 colorscheme tokyodark
 hi Comment ctermbg=16 guibg=#ffffff
-
 
 " tabs and indents
 set expandtab
