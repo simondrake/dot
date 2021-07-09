@@ -29,6 +29,12 @@ nvim_lsp.gopls.setup {
       buildFlags =  {"-tags=integration"},
       gofumpt = true,
       ["local"] = "cd.splunkdev.com",
+      analyses = {
+        unreachable = true,
+        unusedparams = true,
+        nilness = true,
+        shadow = true,
+      }
     }
   },
   -- init_options = {
