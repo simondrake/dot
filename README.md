@@ -11,7 +11,6 @@
 
 ## Other Steps
 
-### coc
 
 * [Install Node.js](https://nodejs.org)
 * [Install iTerm2](https://iterm2.com/)

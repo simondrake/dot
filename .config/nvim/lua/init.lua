@@ -13,6 +13,8 @@ require('plugins/vimspector')
 require('plugins/mappings')
 require('plugins/treesitter')
 require('plugins/colorizer')
+require('plugins/vimsleuth')
+require('plugins/vimmarkdown')
 
 --################
 --> LSP

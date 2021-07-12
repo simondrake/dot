@@ -19,7 +19,7 @@ require('packer').startup(function(use)
   -- Formatting {
    use { 'bronson/vim-trailing-whitespace' }
    use { 'tmsvg/pear-tree' } -- Auto-pair brackets
-   -- use { 'tpope/vim-sleuth' } -- Auto detect indentation settings
+   use { 'tpope/vim-sleuth' } -- Auto detect indentation settings
    use { 'vim-scripts/tComment' }
   -- }
 
@@ -49,17 +49,14 @@ require('packer').startup(function(use)
   -- }
 
   -- UI {
-  -- use { 'tiagovla/tokyodark.nvim' }
   use { 'simondrake/tokyodark.nvim' }
-  use { 'monsonjeremy/onedark.nvim' }
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use { 'norcalli/nvim-colorizer.lua' }
-  -- use { 'p00f/nvim-ts-rainbow' }
   -- }
 
   -- Language Support
   use { 'plasticboy/vim-markdown', ft = { 'markdown' }} -- Only load for markdown filetypes
-  use { 'jose-elias-alvarez/nvim-lsp-ts-utils', requires = { 'nvim-lua/plenary.nvim' }, ft = { 'javascript' }}
+  use { 'jose-elias-alvarez/nvim-lsp-ts-utils', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'sheerun/vim-polyglot' }
 
   -- Debugging {

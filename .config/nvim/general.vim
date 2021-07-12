@@ -16,8 +16,6 @@ set completeopt=menuone,noselect
 set cursorline                  " Highlight the line containing the cursor
 set t_Co=256
 set redrawtime=10000
-set autoindent
-filetype plugin indent on
 
 " set hlsearch                    " Highlight found searches - enable this OR nohlsearch
 set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
@@ -28,11 +26,6 @@ let g:tokyodark_enable_italic_comment = 1
 let g:tokyodark_enable_italic = 1
 let g:tokyodark_color_gamma = "1.0" 		" Adjust the brightness
 colorscheme tokyodark
-
-" tabs and indents
-set expandtab
-set shiftwidth=4
-set tabstop=4
 
 " make the cursor nice
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
@@ -90,4 +83,3 @@ endfunction
 " --hidden search hidden files
 " --ignore ignore files/directories matching pattern
 let $FZF_DEFAULT_COMMAND='ag --files-with-matches --ignore-case --skip-vcs-ignore --hidden --ignore .git'
-
