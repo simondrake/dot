@@ -1,5 +1,22 @@
 {
   "configurations": {
+     "run": {
+        "adapter": "vscode-go",
+        "configuration": {
+            "request": "launch",
+            "program": "${workspaceRoot}/${PathToCMD}",
+            "mode": "debug",
+            "dlvToolPath": "$HOME/go/bin/dlv",
+            "dlvLoadConfig": {
+                "maxArrayValues": 1000,
+                "maxStringLen": 1000,
+                "maxStructFields": -1,
+                "followPointers" : true,
+                "maxVariableRecurse" : 10
+            },
+            "args": []
+        }
+    },
     "test-current-file": {
       "adapter": "vscode-go",
       "configuration": {
@@ -10,7 +27,10 @@
         "dlvToolPath": "$GOPATH/bin/dlv",
         "dlvLoadConfig": {
           "maxArrayValues": 1000,
-          "maxStringLen": 1000
+          "maxStringLen": 1000,
+          "maxStructFields": -1,
+          "followPointers" : true,
+          "maxVariableRecurse" : 10
         },
         "args": [],
         "buildFlags": "-tags=integration"

@@ -1,5 +1,6 @@
 local o = vim.o
-o.completeopt = 'noinsert,menuone'
+-- o.completeopt = 'noinsert,menuone'
+o.completeopt = 'menuone,noselect'
 
 require('compe').setup {
   enabled = true;
