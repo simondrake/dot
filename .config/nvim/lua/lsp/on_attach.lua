@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   -- workspace = true shows diagnostics for the whole project
-  buf_set_keymap('n', 'Q', '<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = true, workspace = true})<CR>', opts)
+  buf_set_keymap('n', 'Q', '<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = true, workspace = true, severity_limit = "Error" })<CR>', opts)
   -- show Errors and Warnings in the current file only
   buf_set_keymap('n', '<leader>Q', '<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = true, severity_limit = "Warning" })<CR>', opts)
 
