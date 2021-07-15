@@ -37,9 +37,6 @@ nvim_lsp.gopls.setup {
       }
     }
   },
-  -- init_options = {
-  --   buildFlags =  {"-tags=integration"},
-  -- }
 }
 
 local servers = { "tsserver", "vim_language_server" }
