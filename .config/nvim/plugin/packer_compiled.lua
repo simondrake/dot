@@ -146,13 +146,18 @@ _G.packer_plugins = {
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/opt/vim-gitgutter"
   },
   ["vim-markdown"] = {
     loaded = false,
     needs_bufread = true,
     path = "/Users/sdrake/.local/share/nvim/site/pack/packer/opt/vim-markdown"
+  },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-polyglot"
   },
   ["vim-rhubarb"] = {
     loaded = true,
@@ -189,6 +194,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-gitgutter'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")

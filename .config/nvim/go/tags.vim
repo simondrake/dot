@@ -101,8 +101,8 @@ func s:write_out(out) abort
     exe l:winnr . "wincmd w"
   endif
 endfunc
-
-
+"
+"
 " create_cmd returns a dict that contains the command to execute gomodifytags
 func s:create_cmd(args) abort
   if !exists("*json_decode")
@@ -212,12 +212,3 @@ func s:create_cmd(args) abort
 
   return {'cmd': cmd}
 endfunc
-
-" restore Vi compatibility settings
-" let &cpo = s:cpo_save
-" unlet s:cpo_save
-
-" vim: sw=2 ts=2 et
-
-
-command! -nargs=* -range GoAddTags call go#tags#Add(<line1>, <line2>, <count>, <f-args>)

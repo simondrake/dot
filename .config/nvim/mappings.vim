@@ -64,6 +64,9 @@ noremap <Leader>pi "*pi
 inoremap <leader>fs <esc>:GoFillStruct<CR>
 nnoremap <leader>fs :GoFillStruct<CR>
 
+nnoremap <leader>ta :GoAddTags
+nnoremap <leader>tr :GoRemoveTags<CR>
+
 " function! ProfileStart()
 "   :profile start profile.log
 "   :profile func *
