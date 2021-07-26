@@ -58,8 +58,7 @@ autocmd BufWritePre * TrimWhitespace
 
 " Show whitespace characters
 set list
-set listchars=tab:>-
-set listchars=space:.
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 " <leader><number> to be taken to the desired window
 " e.g. if the leader is the default '\\' then '\\2' will take you to the
