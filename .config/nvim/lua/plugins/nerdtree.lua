@@ -5,7 +5,7 @@ g.NERDTreeAutoDeleteBuffer = 1
 
 local map = vim.api.nvim_set_keymap
 -- map('n', '<leader>y', ':NERDTreeFind<CR>', { silent = true })
-map('n', '<leader>k', ':NERDTreeToggle<CR>', { silent = true })
+-- map('n', '<leader>k', ':NERDTreeToggle<CR>', { silent = true })
 map('n', '-', ':call ToggleTree()<CR>', { silent = true })
 
 vim.api.nvim_exec([[

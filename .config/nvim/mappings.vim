@@ -31,8 +31,8 @@ nnoremap <silent> <C-F> :Files<CR>
 nnoremap <silent> <leader>r :noh<CR>
 
 " NerdTree Mappings
-nnoremap <silent> <leader>k :NERDTreeToggle<CR>
-nnoremap <silent> <leader>y :NERDTreeFind<CR>
+" nnoremap <silent> <leader>k :NERDTreeToggle<CR>
+" nnoremap <silent> <leader>y :NERDTreeFind<CR>
 
 " Splits
 nnoremap <C-H> <C-W><C-H> " LEFT - ctrl-h instead of ctrl-w then h
@@ -53,13 +53,13 @@ nmap <silent> [p :pu!<CR>
 " Map escape work properly in terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-noremap <Leader>y "*y
-noremap <Leader>yy "*yy
-noremap <Leader>yi "*yi
+noremap <leader>y "*y
+noremap <leader>yy "*yy
+noremap <leader>yi "*yi
 
-noremap <Leader>p "*p
-noremap <Leader>pp "*pp
-noremap <Leader>pi "*pi
+noremap <leader>p "*p
+noremap <leader>pp "*pp
+noremap <leader>pi "*pi
 
 inoremap <leader>fs <esc>:GoFillStruct<CR>
 nnoremap <leader>fs :GoFillStruct<CR>
@@ -76,3 +76,12 @@ nnoremap <leader>tr :GoRemoveTags<CR>
 " function! ProfileStop()
 "   :profile stop
 " endfunction
+
+" List Navigation
+" see :help quickfix for more
+" 				Previous Entry
+nnoremap <leader>j :cprevious<CR>
+" 				Next Entry
+nnoremap <leader>k :cnext<CR>
+" 				Close the List window
+nnoremap <leader>l :cclose<CR>

@@ -18,6 +18,9 @@ export FZF_DEFAULT_COMMAND='ag --hidden --skip-vcs-ignore -i --ignore .git -g ""
 
 ZSH_THEME="ys"
 
+# Space before command = not added to shell history
+HISTCONTROL=ignorespace
+
 plugins=(docker dotenv history-substring-search osx zsh-autosuggestions zsh-syntax-highlighting)
 
 ZSH_DOTENV_FILE=local.env

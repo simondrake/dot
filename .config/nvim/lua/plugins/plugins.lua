@@ -41,7 +41,7 @@ require('packer').startup(function(use)
   -- }
 
   -- Navigation {
-  -- use { 'preservim/nerdtree' }
+  use { 'preservim/nerdtree' }
   -- }
 
   -- Tools {
