@@ -8,7 +8,7 @@ set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set splitright                  " Vertical windows should be split to right
 set number                      " Show line numbers
-set relativenumber              " Setting number and relativenumber enables hybrid mode
+" set relativenumber              " Setting number and relativenumber enables hybrid mode
 set splitbelow                  " Horizontal windows should split to bottom
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 set ignorecase                  " Search case insensitive...

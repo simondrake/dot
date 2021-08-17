@@ -5,7 +5,7 @@ require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- Git {
-  use { 'airblade/vim-gitgutter' }
+  -- use { 'airblade/vim-gitgutter' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-rhubarb' }
   --   }
