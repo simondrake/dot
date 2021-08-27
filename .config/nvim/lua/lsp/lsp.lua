@@ -40,7 +40,7 @@ nvim_lsp.gopls.setup {
   },
 }
 
-local servers = { "tsserver", "vim_language_server" }
+local servers = { "tsserver", "vim_language_server", "bashls", "dockerls", "html", "jsonls", "puppet" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

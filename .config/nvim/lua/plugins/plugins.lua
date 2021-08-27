@@ -5,7 +5,7 @@ require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- Git {
-  -- use { 'airblade/vim-gitgutter' }
+  use { 'airblade/vim-gitgutter' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-rhubarb' }
   --   }
@@ -14,6 +14,18 @@ require('packer').startup(function(use)
    use { 'tpope/vim-sensible' }
    use { 'mg979/vim-visual-multi', branch = 'master' }
    use { 'tyru/current-func-info.vim' }
+  -- }
+
+  -- Neovim 0.5 {
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Post-install/update hook with neovim command
+  use { 'hrsh7th/nvim-compe' }
+  use { 'lukas-reineke/indent-blankline.nvim' }
+  -- }
+
+  -- lsp {
+   use { 'ray-x/lsp_signature.nvim' }
+   use { 'neovim/nvim-lspconfig' }
+   use { 'onsails/lspkind-nvim' }
   -- }
 
   -- Formatting {
@@ -28,12 +40,6 @@ require('packer').startup(function(use)
     use { 'rafamadriz/friendly-snippets' }
   -- }
 
-  -- Neovim 0.5 {
-  use { 'neovim/nvim-lspconfig' }
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Post-install/update hook with neovim command
-  use { 'hrsh7th/nvim-compe' }
-  use { 'onsails/lspkind-nvim' }
-  -- }
 
   -- Searching {
   use { 'junegunn/fzf', run = vim.fn['fzf#install'] }
