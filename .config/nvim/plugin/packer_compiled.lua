@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/sdrake/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/sdrake/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/sdrake/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/sdrake/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/sdrake/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/simondrake/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/simondrake/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/simondrake/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/simondrake/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/simondrake/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,136 +71,135 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["current-func-info.vim"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/current-func-info.vim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/current-func-info.vim"
   },
   ["friendly-snippets"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
   fzf = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/fzf"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/fzf"
   },
   ["fzf.vim"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/fzf.vim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/fzf.vim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   nerdtree = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nerdtree"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nerdtree"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
   },
   ["nvim-compe"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lsp-ts-utils"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nvim-lsp-ts-utils"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-lsp-ts-utils"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["pear-tree"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/pear-tree"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/pear-tree"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   tComment = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/tComment"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/tComment"
   },
   tabular = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/tabular"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/tabular"
   },
   ["tokyodark.nvim"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/tokyodark.nvim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/tokyodark.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
   },
   ["vim-markdown"] = {
-    loaded = false,
-    needs_bufread = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/opt/vim-markdown"
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-markdown"
   },
   ["vim-polyglot"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-polyglot"
   },
   ["vim-rhubarb"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
   },
   ["vim-sensible"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-sensible"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-sensible"
   },
   ["vim-sleuth"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-sleuth"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-sleuth"
   },
   ["vim-trailing-whitespace"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace"
   },
   ["vim-visual-multi"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-visual-multi"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-visual-multi"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
   vimspector = {
     loaded = true,
-    path = "/Users/sdrake/.local/share/nvim/site/pack/packer/start/vimspector"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vimspector"
   }
 }
 
 time([[Defining packer_plugins]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
-vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /Users/sdrake/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], true)
-vim.cmd [[source /Users/sdrake/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]]
-time([[Sourcing ftdetect script at: /Users/sdrake/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

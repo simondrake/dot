@@ -14,9 +14,9 @@
 
 * [Install Node.js](https://nodejs.org)
 * [Install iTerm2](https://iterm2.com/)
+* [Wally](https://ergodox-ez.com/pages/wally)
 
 ### Apps
-* [Karabiner Elements](https://karabiner-elements.pqrs.org/)
 * [Skitch](https://evernote.com/products/skitch) OR [Lightshot](https://app.prntscr.com/en/index.html)
 * [Rectangle](https://rectangleapp.com/)
 * [Flycut](https://github.com/TermiT/Flycut)
