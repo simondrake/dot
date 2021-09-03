@@ -54,4 +54,15 @@ grih() {
 	git rebase --interactive HEAD~$1
 }
 
+# Update forked repo with rebase
+gufr() {
+  if [ -z "$1" ]; then
+    echo "original repo address must be specified"
+  else
+    git remote add upstream $1
+    git fetch upstream
+    git rebase upstream/master
+  fi
+}
+
 mkcd () { mkdir -p "$@" && cd "$_"; }
