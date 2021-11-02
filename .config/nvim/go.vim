@@ -8,3 +8,6 @@ command! -nargs=* -range GoRemoveTags call go#tags#Remove(<line1>, <line2>, <cou
 
 " -- fillstruct
 command! -nargs=0 GoFillStruct call go#fillstruct#FillStruct()
+
+" -- GoRun
+command! -nargs=* -bang -complete=file GoRun call go#cmd#Run(<bang>0,<f-args>)

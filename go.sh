@@ -7,5 +7,14 @@ if ! command -v go &> /dev/null; then
 fi
 
 # Install gofumpt
-GO111MODULE=on go get mvdan.cc/gofumpt
+go install mvdan.cc/gofumpt@latest
 
+# Install fillstruct
+go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
+
+# Install golangci-lint
+# https://golangci-lint.run/usage/install/
+brew install golangci-lint
+
+# And golangci-lint-langserver
+go install github.com/nametake/golangci-lint-langserver@install

@@ -1,3 +1,7 @@
+" don't spam the user when Vim is started in Vi compatibility mode
+let s:cpo_save = &cpo
+set cpo&vim
+
 " PathListSep returns the appropriate OS specific path list separator.
 function! go#util#PathListSep() abort
   if go#util#IsWin()
@@ -190,3 +194,48 @@ endfunction
 function! go#util#EchoInfo(msg)
   call s:echo(a:msg, 'Debug')
 endfunction
+
+" Check if Vim jobs API is supported.
+"
+" The (optional) first parameter can be added to indicate the 'cwd' or 'env'
+" parameters will be used, which wasn't added until a later version.
+function! go#util#has_job(...) abort
+  return has('job') || has('nvim')
+endfunction
+
+" ExecInDir will execute cmd with the working directory set to the current
+" buffer's directory.
+function! go#util#ExecInDir(cmd, ...) abort
+  let l:wd = expand('%:p:h')
+  return call('go#util#ExecInWorkDir', [a:cmd, l:wd] + a:000)
+endfunction
+
+" ExecInWorkDir will execute cmd with the working diretory set to wd. Additional arguments will be passed
+" to cmd.
+function! go#util#ExecInWorkDir(cmd, wd, ...) abort
+  if !isdirectory(a:wd)
+    return ['', 1]
+  endif
+
+  let l:dir = go#util#Chdir(a:wd)
+  try
+    let [l:out, l:err] = call('go#util#Exec', [a:cmd] + a:000)
+  finally
+    call go#util#Chdir(l:dir)
+  endtry
+  return [l:out, l:err]
+endfunction
+
+function! go#util#Chdir(dir) abort
+  if !exists('*chdir')
+    let l:olddir = getcwd()
+    let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
+    execute printf('%s %s', cd, fnameescape(a:dir))
+    return l:olddir
+  endif
+  return chdir(a:dir)
+endfunction
+
+" restore Vi compatibility settings
+let &cpo = s:cpo_save
+unlet s:cpo_save

@@ -36,12 +36,44 @@ set mouse+=a " Don't select/copy line numbers
 let mapleader = ","
 
 " highlight extra whitespace
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
-" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-" autocmd BufWinLeave * call clearmatches()
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * match
+
+"=======================================
+" Search and Replace {
+"=======================================
+
+" ReplaceGlobal finds each occurence of {pattern} (all lines) and replaces it
+" with {replacement}
+fu! ReplaceGlobal(pattern, replacement)
+    exec('%s/' . a:pattern . '/' . a:replacement . '/g')
+endfun
+" Allows usage of ':ReplaceGlobal <arg1> <arg2>' instead of ':call ReplaceGlobal("arg1", "arg2")'
+" f-args
+:command! -nargs=* ReplaceGlobal call ReplaceGlobal(<f-args>)
+
+
+" ReplaceLine finds each occurence of {pattern} (current lines) and replaces it
+" with {replacement}
+fu! ReplaceLine(pattern, replacement)
+    exec('s/' . a:pattern . '/' . a:replacement . '/g')
+endfun
+:command! -nargs=* ReplaceLine call ReplaceLine(<f-args>)
+
+" ReplaceQuickfix uses the cdo command to replace each occurence {pattern} and
+" replaces it with {replacement} in the quickfix window
+fu! ReplaceQuickfix(pattern, replacement)
+    exec('cdo s/' . a:pattern . '/' . a.replacement . '/g | update')
+endfun
+
+"=======================================
+" }
+"=======================================
+
 
 
 " function to trim trailing whitespace
@@ -57,8 +89,8 @@ command! TrimWhitespace call TrimWhitespace()
 autocmd BufWritePre * TrimWhitespace
 
 " Show whitespace characters
-set list
-" set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+" set list
+" set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:.
 
 " <leader><number> to be taken to the desired window
 " e.g. if the leader is the default '\\' then '\\2' will take you to the

@@ -72,6 +72,8 @@ PROMPT=$PROMPT' $(kube_ps1)'
 PROMPT=$PROMPT' $(cloudctl_ps1)'
 # Add on vim mode
 PROMPT=$PROMPT' ${VIMODE}'
+# Add on time and exit code
+PROMPT=$PROMPT' %{$fg[white]%}[%*] $exit_code'
 # Add on the new line and $ prompts
 PROMPT=$PROMPT"
 \
@@ -93,15 +95,15 @@ fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/sdrake/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/sdrake/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/sdrake/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/sdrake/google-cloud-sdk/completion.zsh.inc'; fi
-
 if which kubectl > /dev/null 2>&1; then
     # zsh kubectl auto-completion
     source <(kubectl completion zsh)
     # Make it work with  the k alias as well
     complete -F __start_kubectl k
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/simondrake/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

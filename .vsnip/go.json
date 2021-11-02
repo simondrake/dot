@@ -1,0 +1,12 @@
+{
+	"hello world example": {
+    "scope": "go",
+    "prefix": "hello",
+    "body": "$BLOCK_COMMENT_START Hello World $BLOCK_COMMENT_END"
+  },
+  "subtest function": {
+    "scope": "go",
+    "prefix": "subtest",
+    "body": "t.Run(\"${1:Description}\", func(t *testing.T) {\n$0\n})"
+  }
+}

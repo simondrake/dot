@@ -13,7 +13,7 @@ require('packer').startup(function(use)
   -- General {
    use { 'tpope/vim-sensible' }
    use { 'mg979/vim-visual-multi', branch = 'master' }
-   use { 'tyru/current-func-info.vim' }
+   -- use { 'tyru/current-func-info.vim' }
   -- }
 
   -- Neovim 0.5 {
@@ -37,17 +37,19 @@ require('packer').startup(function(use)
 
   -- Snippets {
     use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/vim-vsnip-integ' }
     use { 'rafamadriz/friendly-snippets' }
   -- }
 
 
   -- Searching {
-  use { 'junegunn/fzf', run = vim.fn['fzf#install'] }
+  use { 'junegunn/fzf', run = './install --bin' }
   use { 'junegunn/fzf.vim' }
+  use { 'mileszs/ack.vim' }
   -- }
 
   -- Navigation {
-  use { 'preservim/nerdtree' }
+  -- use { 'preservim/nerdtree' }
   -- }
 
   -- Tools {
@@ -66,7 +68,7 @@ require('packer').startup(function(use)
   use { 'sheerun/vim-polyglot' }
 
   -- Debugging {
-  use { 'puremourning/vimspector' }
+  -- use { 'puremourning/vimspector' }
   -- }
 
 end)

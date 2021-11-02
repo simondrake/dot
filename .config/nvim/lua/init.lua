@@ -15,6 +15,7 @@ require('plugins/treesitter')
 require('plugins/colorizer')
 require('plugins/vimsleuth')
 require('plugins/vimmarkdown')
+require('plugins/indent-blankline')
 
 --################
 --> LSP

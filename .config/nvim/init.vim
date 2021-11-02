@@ -9,6 +9,10 @@ source $HOME/.config/nvim/go/util.vim
 source $HOME/.config/nvim/go/path.vim
 source $HOME/.config/nvim/go/config.vim
 source $HOME/.config/nvim/go/fillstruct.vim
+source $HOME/.config/nvim/go/cmd.vim
+source $HOME/.config/nvim/go/statusline.vim
+source $HOME/.config/nvim/go/tool.vim
+source $HOME/.config/nvim/go/list.vim
 
 luafile $HOME/.config/nvim/lua/init.lua
 

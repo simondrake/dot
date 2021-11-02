@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["ack.vim"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/ack.vim"
+  },
   ["current-func-info.vim"] = {
     loaded = true,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/current-func-info.vim"
@@ -77,13 +81,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
-  fzf = {
+  ["fzf-lua"] = {
     loaded = true,
-    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/fzf"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/fzf.vim"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/fzf-lua"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -101,10 +101,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
-  nerdtree = {
-    loaded = true,
-    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nerdtree"
-  },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
@@ -112,6 +108,10 @@ _G.packer_plugins = {
   ["nvim-compe"] = {
     loaded = true,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-fzf"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-fzf"
   },
   ["nvim-lsp-ts-utils"] = {
     loaded = true,
@@ -164,6 +164,7 @@ _G.packer_plugins = {
   ["vim-markdown"] = {
     loaded = false,
     needs_bufread = true,
+    only_cond = false,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/opt/vim-markdown"
   },
   ["vim-polyglot"] = {
@@ -193,10 +194,6 @@ _G.packer_plugins = {
   ["vim-vsnip"] = {
     loaded = true,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vim-vsnip"
-  },
-  vimspector = {
-    loaded = true,
-    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/vimspector"
   }
 }
 

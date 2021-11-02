@@ -56,12 +56,16 @@ grih() {
 
 # Update forked repo with rebase
 gufr() {
+  # Have to use else/elif because exit 1 would cause
+  # the terminal window to close
   if [ -z "$1" ]; then
     echo "original repo address must be specified"
+  elif [ -z "$2" ]; then
+    echo "upstream branch must be specified"
   else
-    git remote add upstream $1
+    git remote add upstream "$1"
     git fetch upstream
-    git rebase upstream/master
+    git rebase "upstream/$2"
   fi
 }
 
