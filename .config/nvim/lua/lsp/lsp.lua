@@ -42,19 +42,19 @@ nvim_lsp.gopls.setup {
 }
 
 -- if not nvim_lsp.golangcilsp then
-configs.golangcilsp = {
-	default_config = {
-		cmd = {'golangci-lint-langserver'},
-		root_dir = nvim_lsp.util.root_pattern('.git', 'go.mod'),
-		init_options = {
-				command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--disable", "exhaustivestruct", "--disable", "gci", "--out-format", "json" };
-		}
-	};
-}
+-- configs.golangcilsp = {
+-- 	default_config = {
+-- 		cmd = {'golangci-lint-langserver'},
+-- 		root_dir = nvim_lsp.util.root_pattern('.git', 'go.mod'),
+-- 		init_options = {
+-- 				command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--disable", "exhaustivestruct", "--disable", "gci", "--out-format", "json" };
+-- 		}
+-- 	};
+-- }
 -- end
-nvim_lsp.golangcilsp.setup {
-	filetypes = {'go'}
-}
+-- nvim_lsp.golangcilsp.setup {
+-- 	filetypes = {'go'}
+-- }
 
 local servers = { "tsserver", "vim_language_server", "bashls", "dockerls", "html", "jsonls", "puppet" }
 for _, lsp in ipairs(servers) do

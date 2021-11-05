@@ -4,7 +4,7 @@ local on_attach = function(client, bufnr)
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
+  -- require "lsp_signature".on_attach()  -- Note: add in lsp client on-attach
 
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)

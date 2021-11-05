@@ -15,8 +15,8 @@ set ignorecase                  " Search case insensitive...
 set completeopt=menuone,noselect
 set cursorline                  " Highlight the line containing the cursor
 set t_Co=256
-set redrawtime=10000
-
+" set redrawtime=10000
+set updatetime=100
 " set hlsearch                    " Highlight found searches - enable this OR nohlsearch
 set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
 
@@ -26,6 +26,22 @@ let g:tokyodark_enable_italic_comment = 1
 let g:tokyodark_enable_italic = 1
 let g:tokyodark_color_gamma = "1.0" 		" Adjust the brightness
 colorscheme tokyodark
+
+" Disable parentheses matching depends on system. This way we should address all cases (?)
+set noshowmatch
+" NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
+" Trying disable MatchParen after loading all plugins
+"
+function! g:FckThatMatchParen ()
+    if exists(":NoMatchParen")
+        :NoMatchParen
+    endif
+endfunction
+
+augroup plugin_initialize
+    autocmd!
+    autocmd VimEnter * call FckThatMatchParen()
+augroup END
 
 " make the cursor nice
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
