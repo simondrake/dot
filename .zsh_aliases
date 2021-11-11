@@ -182,9 +182,10 @@ dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 alias csshX="noglob csshX"
 alias catLatest="cat \"\$(ls -rt | tail -n1)\""
 
-######## Lazy Commands ########
-alias mr="make run"
-alias mt="make test"
-alias mit="make integration-test"
-
 alias updateCloudctl="brew update && brew upgrade toolbox/tap/cloudctl"
+
+
+######## golangci-lint Commands ########
+
+# Run golangci-lint to find all issues introduced since the branch passed in as $1
+glciFromBranch() { golangci-lint run --new-from-rev="$1" ./... }

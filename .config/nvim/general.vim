@@ -38,10 +38,10 @@ function! g:FckThatMatchParen ()
     endif
 endfunction
 
-augroup plugin_initialize
-    autocmd!
-    autocmd VimEnter * call FckThatMatchParen()
-augroup END
+" augroup plugin_initialize
+"     autocmd!
+"     autocmd VimEnter * call FckThatMatchParen()
+" augroup END
 
 " make the cursor nice
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
