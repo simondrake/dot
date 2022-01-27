@@ -13,6 +13,11 @@ source $HOME/.config/nvim/go/cmd.vim
 source $HOME/.config/nvim/go/statusline.vim
 source $HOME/.config/nvim/go/tool.vim
 source $HOME/.config/nvim/go/list.vim
+source $HOME/.config/nvim/go/lsp.vim
+source $HOME/.config/nvim/go/lsp/message.vim
+source $HOME/.config/nvim/go/job.vim
+source $HOME/.config/nvim/go/uri.vim
+
 
 luafile $HOME/.config/nvim/lua/init.lua
 

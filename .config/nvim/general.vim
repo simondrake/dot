@@ -21,11 +21,22 @@ set updatetime=100
 set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
 
 " colorscheme
-let g:tokyodark_transparent_background = 0
-let g:tokyodark_enable_italic_comment = 1
-let g:tokyodark_enable_italic = 1
-let g:tokyodark_color_gamma = "1.0" 		" Adjust the brightness
-colorscheme tokyodark
+" let g:tokyodark_transparent_background = 0
+" let g:tokyodark_enable_italic_comment = 1
+" let g:tokyodark_enable_italic = 1
+" let g:tokyodark_color_gamma = "1.0" 		" Adjust the brightness
+" colorscheme tokyodark
+
+let g:gruvbox_italic = 1
+let g:gruvbox_italicize_comments = 1
+let g:gruvbox_transparent_bg = 0
+" let g:gruvbox_contrast_light = "soft"
+let g:gruvbox_contrast_light = "medium"
+" let g:gruvbox_contrast_light = "hard"
+
+" set background=dark    " Setting dark mode
+set background=light   " Setting light mode
+colorscheme gruvbox
 
 " Disable parentheses matching depends on system. This way we should address all cases (?)
 set noshowmatch

@@ -188,4 +188,6 @@ alias updateCloudctl="brew update && brew upgrade toolbox/tap/cloudctl"
 ######## golangci-lint Commands ########
 
 # Run golangci-lint to find all issues introduced since the branch passed in as $1
-glciFromBranch() { golangci-lint run --new-from-rev="$1" ./... }
+glciFromBranch() {
+  golangci-lint run --enable-all --disable=exhaustivestruct --disable=lll --disable=gci --disable=wrapcheck --disable=paralleltest --no-config --max-issues-per-linter=0 --max-same-issues=0 --new-from-rev="$1" ./...
+}

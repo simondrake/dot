@@ -6,9 +6,13 @@ export PATH=$PATH:/usr/local/kubebuilder/bin
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 # npm global :shrug:
 export PATH=~/.npm-global/bin:$PATH
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
 export GOPATH=$HOME/go
 export GOPRIVATE=cd.splunkdev.com
+export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
+
 export CO2_AUTH_DISABLED=true
 
 # Path to your oh-my-zsh installation.
@@ -21,7 +25,7 @@ ZSH_THEME="ys"
 # Space before command = not added to shell history
 HISTCONTROL=ignorespace
 
-plugins=(docker dotenv history-substring-search osx zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(docker dotenv history-substring-search macos zsh-autosuggestions zsh-syntax-highlighting)
 
 ZSH_DOTENV_FILE=local.env
 ZSH_DOTENV_PROMPT=false
@@ -107,3 +111,4 @@ if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+[ -f "/Users/simondrake/.ghcup/env" ] && source "/Users/simondrake/.ghcup/env" # ghcup-env

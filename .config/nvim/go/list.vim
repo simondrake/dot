@@ -2,6 +2,135 @@
 let s:cpo_save = &cpo
 set cpo&vim
 
+" Window opens the list with the given height up to 10 lines maximum.
+" Otherwise g:go_loclist_height is used.
+"
+" If no or zero height is given it closes the window by default.
+" To prevent this, set g:go_list_autoclose = 0
+function! go#list#Window(listtype, ...) abort
+  " we don't use lwindow to close the location list as we need also the
+  " ability to resize the window. So, we are going to use lopen and lclose
+  " for a better user experience. If the number of errors in a current
+  " location list increases/decreases, cwindow will not resize when a new
+  " updated height is passed. lopen in the other hand resizes the screen.
+  if !a:0 || a:1 == 0
+    call go#list#Close(a:listtype)
+    return
+  endif
+
+  let height = go#config#ListHeight()
+  if height == 0
+    " prevent creating a large location height for a large set of numbers
+    if a:1 > 10
+      let height = 10
+    else
+      let height = a:1
+    endif
+  endif
+
+  if a:listtype == "locationlist"
+    exe 'lopen ' . height
+  else
+    exe 'copen ' . height
+  endif
+endfunction
+
+
+" Get returns the current items from the list
+function! go#list#Get(listtype) abort
+  if a:listtype == "locationlist"
+    return getloclist(0)
+  else
+    return getqflist()
+  endif
+endfunction
+
+" Populate populate the list with the given items
+function! go#list#Populate(listtype, items, title) abort
+  if a:listtype == "locationlist"
+    call setloclist(0, a:items, 'r')
+    call setloclist(0, [], 'a', {'title': a:title})
+  else
+    call setqflist(a:items, 'r')
+    call setqflist([], 'a', {'title': a:title})
+  endif
+endfunction
+
+" Parse parses the given items based on the specified errorformat and
+" populates the list.
+function! go#list#ParseFormat(listtype, errformat, items, title, add) abort
+  " backup users errorformat, will be restored once we are finished
+  let old_errorformat = &errorformat
+
+  " parse and populate the location list
+  let &errorformat = a:errformat
+  try
+    call go#list#Parse(a:listtype, a:items, a:title, a:add)
+  finally
+    "restore back
+    let &errorformat = old_errorformat
+  endtry
+endfunction
+
+" Parse parses the given items based on the global errorformat and
+" populates the list.
+function! go#list#Parse(listtype, items, title, add) abort
+  let l:list = []
+  if a:add
+    let l:list = go#list#Get(a:listtype)
+  endif
+
+  if a:listtype == "locationlist"
+    if a:add
+      laddexpr a:items
+    else
+      lgetexpr a:items
+    endif
+    call setloclist(0, [], 'a', {'title': a:title})
+  else
+    if a:add
+      caddexpr a:items
+    else
+      cgetexpr a:items
+    endif
+    call setqflist([], 'a', {'title': a:title})
+  endif
+endfunction
+
+" JumpToFirst jumps to the first item in the location list
+function! go#list#JumpToFirst(listtype) abort
+  if a:listtype == "locationlist"
+    ll 1
+  else
+    cc 1
+  endif
+endfunction
+
+" Clean cleans and closes the location list 
+function! go#list#Clean(listtype) abort
+  if a:listtype == "locationlist"
+    lex []
+  else
+    cex []
+  endif
+
+  call go#list#Close(a:listtype)
+endfunction
+
+" Close closes the location list
+function! go#list#Close(listtype) abort
+  let autoclose_window = go#config#ListAutoclose()
+  if !autoclose_window
+    return
+  endif
+
+  if a:listtype == "locationlist"
+    lclose
+  else
+    cclose
+  endif
+endfunction
+
 function! s:listtype(listtype) abort
   let listtype = go#config#ListType()
   if empty(listtype)
@@ -54,58 +183,8 @@ function! go#list#Type(for) abort
   return get(go#config#ListTypeCommands(), a:for, l:listtype)
 endfunction
 
-" Get returns the current items from the list
-function! go#list#Get(listtype) abort
-  if a:listtype == "locationlist"
-    return getloclist(0)
-  else
-    return getqflist()
-  endif
-endfunction
-
-" Window opens the list with the given height up to 10 lines maximum.
-" Otherwise g:go_loclist_height is used.
-"
-" If no or zero height is given it closes the window by default.
-" To prevent this, set g:go_list_autoclose = 0
-function! go#list#Window(listtype, ...) abort
-  " we don't use lwindow to close the location list as we need also the
-  " ability to resize the window. So, we are going to use lopen and lclose
-  " for a better user experience. If the number of errors in a current
-  " location list increases/decreases, cwindow will not resize when a new
-  " updated height is passed. lopen in the other hand resizes the screen.
-  if !a:0 || a:1 == 0
-    call go#list#Close(a:listtype)
-    return
-  endif
-
-  let height = go#config#ListHeight()
-  if height == 0
-    " prevent creating a large location height for a large set of numbers
-    if a:1 > 10
-      let height = 10
-    else
-      let height = a:1
-    endif
-  endif
-
-  if a:listtype == "locationlist"
-    exe 'lopen ' . height
-  else
-    exe 'copen ' . height
-  endif
-endfunction
-
-" JumpToFirst jumps to the first item in the location list
-function! go#list#JumpToFirst(listtype) abort
-  if a:listtype == "locationlist"
-    ll 1
-  else
-    cc 1
-  endif
-endfunction
-
 " restore Vi compatibility settings
 let &cpo = s:cpo_save
 unlet s:cpo_save
 
+" vim: sw=2 ts=2 et

@@ -19,8 +19,14 @@ require('packer').startup(function(use)
 
   -- Neovim 0.5 {
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Post-install/update hook with neovim command
-  use { 'hrsh7th/nvim-compe' }
-  -- use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'mfussenegger/nvim-lint' }
+  use { 'lukas-reineke/indent-blankline.nvim' }
+
+  use { "hrsh7th/cmp-nvim-lsp" }
+  use { "hrsh7th/cmp-path" }
+  use { "hrsh7th/cmp-buffer" }
+  use { "hrsh7th/cmp-cmdline" }
+  use { "hrsh7th/nvim-cmp" }
   -- }
 
   -- lsp {
@@ -34,19 +40,23 @@ require('packer').startup(function(use)
    -- use { 'tmsvg/pear-tree' } -- Auto-pair brackets
    -- use { 'tpope/vim-sleuth' } -- Auto detect indentation settings
    use { 'vim-scripts/tComment' }
+   use { 'windwp/nvim-autopairs' }
   -- }
 
   -- Snippets {
+    use { 'hrsh7th/cmp-vsnip' }
     use { 'hrsh7th/vim-vsnip' }
     -- use { 'hrsh7th/vim-vsnip-integ' }
-    -- use { 'rafamadriz/friendly-snippets' }
+    use { 'rafamadriz/friendly-snippets' }
   -- }
 
 
   -- Searching {
-  use { 'junegunn/fzf', run = './install --bin' }
-  use { 'junegunn/fzf.vim' }
+  -- use { 'junegunn/fzf', run = './install --bin' }
+  -- use { 'junegunn/fzf.vim' }
   use { 'mileszs/ack.vim' }
+  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+  use { "AckslD/nvim-neoclip.lua", config = function() require('neoclip').setup() end }
   -- }
 
   -- Navigation {
@@ -59,6 +69,7 @@ require('packer').startup(function(use)
 
   -- UI {
   use { 'simondrake/tokyodark.nvim' }
+  use { 'morhetz/gruvbox' }
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   -- use { 'norcalli/nvim-colorizer.lua' }
   -- }

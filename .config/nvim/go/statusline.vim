@@ -22,6 +22,53 @@ let s:timer_id = 0
 " last_status stores the last generated text per status
 let s:last_status = ""
 
+" Show returns the current status of the job for 20 seconds (configurable). It
+" displays it in form of 'desc: [type|state]' if there is any state available,
+" if not it returns an empty string. This function should be plugged directly
+" into the statusline.
+function! go#statusline#Show() abort
+  " lazy initialization of the cleaner
+  if !s:timer_id
+    let interval = go#config#StatuslineDuration()
+    let s:timer_id = timer_start(interval, function('go#statusline#Clear'), {'repeat': -1})
+  endif
+
+  " nothing to show
+  if empty(s:statuses)
+    return ''
+  endif
+
+  let status_dir =  expand('%:p:h')
+
+  if !has_key(s:statuses, status_dir)
+    return ''
+  endif
+
+  let status = s:statuses[status_dir]
+  if !has_key(status, 'desc') || !has_key(status, 'state') || !has_key(status, 'type')
+    return ''
+  endif
+
+  let status_text = printf("[%s|%s]", status.type, status.state)
+  if empty(status_text)
+    return ''
+  endif
+
+  " only update highlight if status has changed.
+  if status_text != s:last_status
+    if status.state =~ "success" || status.state =~ "finished" || status.state =~ "pass" || status.state =~ 'initialized'
+      hi goStatusLineColor cterm=bold ctermbg=76 ctermfg=22 guibg=#5fd700 guifg=#005f00
+    elseif status.state =~ "started" || status.state =~ "analysing" || status.state =~ "compiling" || status.state =~ 'initializing'
+      hi goStatusLineColor cterm=bold ctermbg=208 ctermfg=88 guibg=#ff8700 guifg=#870000
+    elseif status.state =~ "failed"
+      hi goStatusLineColor cterm=bold ctermbg=196 ctermfg=52 guibg=#ff0000 guifg=#5f0000
+    endif
+  endif
+
+  let s:last_status = status_text
+  return status_text
+endfunction
+
 " Update updates (adds) the statusline for the given status_dir with the
 " given status dict. It overrides any previously set status.
 function! go#statusline#Update(status_dir, status) abort
@@ -42,6 +89,12 @@ function! go#statusline#Update(status_dir, status) abort
   " time the go#statusline#Show() is called.
   call timer_stop(s:timer_id)
   let s:timer_id = 0
+endfunction
+
+" Clear clears all currently stored statusline data. The timer_id argument is
+" just a placeholder so we can pass it to a timer_start() function if needed.
+function! go#statusline#Clear(timer_id) abort
+  call s:clear()
 endfunction
 
 function! s:clear()
@@ -67,3 +120,5 @@ endfunction
 " restore Vi compatibility settings
 let &cpo = s:cpo_save
 unlet s:cpo_save
+
+" vim: sw=2 ts=2 et

@@ -26,9 +26,9 @@
 " Map ctrl + f as :Ag -> Carriage Return
 " nnoremap <silent> <C-F> :Ag<CR>
 " Map ctrl + f as :Files -> Carriage Return
-nnoremap <silent> <C-F> :Files<CR>
+" nnoremap <silent> <C-F> :Files<CR>
 " Map <leader>r as :noh (clears search highlighting) -> Carriage Return
-nnoremap <silent> <leader>r :noh<CR>
+" nnoremap <silent> <leader>r :noh<CR>
 
 " NerdTree Mappings
 " nnoremap <silent> <leader>k :NERDTreeToggle<CR>
@@ -85,3 +85,16 @@ nnoremap <leader>j :cprevious<CR>
 nnoremap <leader>k :cnext<CR>
 " 				Close the List window
 nnoremap <leader>l :cclose<CR>
+
+" Telescope
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden','--no-ignore-vcs', '-g', '!.git', }})<cr>
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" Find references, excluding test files
+nnoremap gr <cmd>lua require('telescope.builtin').lsp_references({file_ignore_patterns = { "%_test.go" } })<cr>
+" Find references, including test files
+nnoremap <leader>gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
+

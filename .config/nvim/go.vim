@@ -11,3 +11,6 @@ command! -nargs=0 GoFillStruct call go#fillstruct#FillStruct()
 
 " -- GoRun
 command! -nargs=* -bang -complete=file GoRun call go#cmd#Run(<bang>0,<f-args>)
+
+" -- GoBuildTags
+command! -nargs=? -bang GoBuildTags call go#cmd#BuildTags(<bang>0, <f-args>)
