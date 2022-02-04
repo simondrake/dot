@@ -73,6 +73,17 @@ mkcd () { mkdir -p "$@" && cd "$_"; }
 
 # ag
 # -> ignore-case
+# -> with ignore pattern
+# ---> First argument is the text to search
+# ---> Second argument onwards are the patterns to ignore
+agiwi() {
+  # "$1" -> First argument
+  # "${@:2}" -> Second argument onwards
+  agi "$1" -p <(printf "*%s*\n" "${@:2}")
+}
+
+# ag
+# -> ignore-case
 # -> file names only
 # -> with ignore pattern
 # ---> First argument is the text to search
