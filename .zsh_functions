@@ -70,3 +70,15 @@ gufr() {
 }
 
 mkcd () { mkdir -p "$@" && cd "$_"; }
+
+# ag
+# -> ignore-case
+# -> file names only
+# -> with ignore pattern
+# ---> First argument is the text to search
+# ---> Second argument onwards are the patterns to ignore
+agifwi() {
+  # "$1" -> First argument
+  # "${@:2}" -> Second argument onwards
+  agif "$1" -p <(printf "*%s*\n" "${@:2}")
+}
