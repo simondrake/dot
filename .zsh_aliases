@@ -12,6 +12,8 @@ alias agi='ag --hidden --skip-vcs-ignore --ignore-case --ignore ".git"'
 # Same as above, but only returns the files and not the individual lines
 alias agif='ag --files-with-matches --ignore-case --skip-vcs-ignore --hidden --ignore ".git"'
 
+alias fuck='sudo $(fc -ln -1)'
+
 ######## ZSH #######
 alias reload='exec zsh'
 

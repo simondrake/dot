@@ -74,6 +74,31 @@ _G.packer_plugins = {
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/ack.vim",
     url = "https://github.com/mileszs/ack.vim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["cmp-vsnip"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -104,10 +129,15 @@ _G.packer_plugins = {
     path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
   },
-  ["nvim-compe"] = {
+  ["nvim-autopairs"] = {
     loaded = true,
-    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-compe",
-    url = "https://github.com/hrsh7th/nvim-compe"
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/Users/simondrake/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lint"] = {
     loaded = true,
