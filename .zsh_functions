@@ -69,6 +69,10 @@ gufr() {
   fi
 }
 
+gcmsgnv() {
+  git commit -m "$1" --no-verify
+}
+
 mkcd () { mkdir -p "$@" && cd "$_"; }
 
 # ag

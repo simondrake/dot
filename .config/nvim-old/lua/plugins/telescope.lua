@@ -10,3 +10,5 @@ telescope.setup{
     }
   },
 }
+
+telescope.load_extension('neoclip')

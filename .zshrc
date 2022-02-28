@@ -25,7 +25,7 @@ ZSH_THEME="ys"
 # Space before command = not added to shell history
 HISTCONTROL=ignorespace
 
-plugins=(docker dotenv history-substring-search macos zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(dotenv history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
 ZSH_DOTENV_FILE=local.env
 ZSH_DOTENV_PROMPT=false
@@ -38,6 +38,7 @@ bindkey ' ' magic-space # enable option to expand & edit a command before runnin
 
 alias vi="nvim"
 alias vim="nvim"
+alias vinone="nvim -u NONE"
 
 # Change % to an empty string
 PROMPT_EOL_MARK=''
@@ -84,6 +85,30 @@ PROMPT=$PROMPT"
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 
 export EDITOR='nvim'
+
+# Welcome message for Tmux
+if [ ! -z "$TMUX" ]; then
+    echo " _________________________________________"
+    echo "|                                         |"
+    echo "|         Tmux session started            |"
+    echo "|                                         |"
+    echo "| * Prefix: \`                             |"
+    echo "|                                         |"
+    echo "| * Split Horizontally: <prefix> -        |"
+    echo "| * Split Vertically: <prefix> \\          |"
+    echo "|                                         |"
+    echo "| * New Window: <prefix> c                |"
+    echo "| * Previous Window: <prefix> p           |"
+    echo "| * Next Window: <prefix> n               |"
+    echo "| * GoTo Window: <prefix> <number>        |"
+    echo "|                                         |"
+    echo " -----------------------------------------"
+    echo "        \   ^__^"
+    echo "         \  (oo)\_______"
+    echo "            (__)\       )\/\\"
+    echo "                ||----w |"
+    echo "                ||     ||"
+fi
 
 # disable bracketed paste mode if the terminal doesn't support escape sequences
 if [[ $TERM = dumb ]]; then
