@@ -18,44 +18,22 @@ configs.vim_language_server = {
   };
 }
 
--- nvim_lsp.gopls.setup {
---   root_dir = util.root_pattern("go.mod", ".git"),
---   settings = {
---     gopls = {
---       -- usePlaceholders = false,
---       buildFlags =  {"-tags=integration"},
---       -- gofumpt = true,
---       ["local"] = "cd.splunkdev.com",
---       -- experimentalPostfixCompletions = true,
---       analyses = {
---         unreachable = true,
---         unusedparams = true,
---         nilness = true,
---         shadow = true,
---       },
---       staticcheck = true,
---     }
---   },
--- }
-
-configs.gopls = {
-  default_config = {
-    cmd = { "gopls" },
-    filetypes = { 'go', 'gomod', 'gotmpl' },
-    root_dir = function(fname)
-      return util.root_pattern 'go.work'(fname) or util.root_pattern('go.mod', '.git')(fname)
-    end,
-    single_file_support = true,
-    settings = {
-      gopls = {
-        buildFlags = {"-tags=integration" },
-        ["local"] = "cd.splunkdev.com",
-      }
+nvim_lsp.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"gopls", "serve"},
+  filetypes = { "go", "gomod" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  single_file_support = true,
+  settings = {
+    gopls = {
+      buildFlags =  {"-tags=integration"},
+      ["local"] = "cd.splunkdev.com",
     }
-  }
+  },
 }
 
-local servers = { "gopls" }
+local servers = { }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

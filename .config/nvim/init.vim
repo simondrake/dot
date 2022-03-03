@@ -84,6 +84,15 @@ nnoremap gr <cmd>lua require('telescope.builtin').lsp_references({file_ignore_pa
 " Find references, including test files
 nnoremap <leader>gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 
+" List Navigation
+" see :help quickfix for more
+" 				Previous Entry
+nnoremap <leader>j :cprevious<CR>
+" 				Next Entry
+nnoremap <leader>k :cnext<CR>
+" 				Close the List window
+nnoremap <leader>l :cclose<CR>
+
 "================================
 " Lua
 "================================

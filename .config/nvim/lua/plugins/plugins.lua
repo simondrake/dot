@@ -35,6 +35,7 @@ require('packer').startup(function(use)
 
   -- Formatting {
   use { 'windwp/nvim-autopairs' }
+  use { 'tpope/vim-commentary' }
   -- }
 
   -- Snippets {
