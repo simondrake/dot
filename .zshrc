@@ -11,7 +11,10 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
 export GOPATH=$HOME/go
 export GOPRIVATE=cd.splunkdev.com
-export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
+#export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
+export GOPROXY=https://proxy.golang.org\|direct
+
+export REVIEW_BASE="origin/mainline"
 
 export CO2_AUTH_DISABLED=true
 
@@ -109,6 +112,11 @@ if [ ! -z "$TMUX" ]; then
     echo "                ||----w |"
     echo "                ||     ||"
 fi
+
+# Start tmux automatically
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#  exec tmux
+#fi
 
 # disable bracketed paste mode if the terminal doesn't support escape sequences
 if [[ $TERM = dumb ]]; then

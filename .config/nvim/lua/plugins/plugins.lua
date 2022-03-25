@@ -5,7 +5,8 @@ require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- Git {
-  use { 'airblade/vim-gitgutter' }				-- git diff markers
+  -- use { 'airblade/vim-gitgutter' }				-- git diff markers
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- git diff markets
   use { 'tpope/vim-fugitive' }					-- git wrapper
   use { 'tpope/vim-rhubarb' }					-- GitHub extension for fugitive
   use { 'shumphrey/fugitive-gitlab.vim' }			-- GitLab extension for fugitive
@@ -14,6 +15,13 @@ require('packer').startup(function(use)
   -- General {
   use { 'tpope/vim-sensible' }					-- Defaults
   use { 'mg979/vim-visual-multi', branch = 'master' }		-- Multiple cursors
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  } -- Diagnostics etc 
   -- }
   
   -- Neovim 0.5 {
@@ -50,12 +58,23 @@ require('packer').startup(function(use)
   -- }
 
   -- UI {
-  use { 'morhetz/gruvbox' }
-  use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
+  -- use { 'morhetz/gruvbox' }
+  use { 'rebelot/kanagawa.nvim' }
+
+  -- use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
+  -- use { 'arkav/lualine-lsp-progress' } -- LSP progress in lualine
+  use { 'feline-nvim/feline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
+  use { "SmiteshP/nvim-gps" }
   -- }
   
   -- Language Support {
   use { 'sheerun/vim-polyglot' }
+  use { 'tsandall/vim-rego' }
+  -- }
+
+
+  -- Terminal {
+  use { 'voldikss/vim-floaterm' }
   -- }
 
 end)

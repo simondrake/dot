@@ -21,6 +21,7 @@ configs.vim_language_server = {
 nvim_lsp.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  --cmd = {"gopls", "-rpc.trace", "-logfile", "/tmp/gopls.log", "serve"},
   cmd = {"gopls", "serve"},
   filetypes = { "go", "gomod" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),

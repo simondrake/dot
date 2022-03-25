@@ -14,6 +14,8 @@ alias agif='ag --files-with-matches --ignore-case --skip-vcs-ignore --hidden --i
 
 alias fuck='sudo $(fc -ln -1)'
 
+alias kssh='kitty +kitten ssh'
+
 ######## ZSH #######
 alias reload='exec zsh'
 

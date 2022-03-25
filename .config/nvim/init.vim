@@ -16,19 +16,44 @@ set ignorecase                   	" Search case insensitive...
 set cursorline                   	" Highlight the line containing the cursor
 set completeopt=menuone,noselect 	" Completion Preview
 " set hlsearch                    " Highlight found searches - enable this OR nohlsearch
-set nohlsearch                 " Don't highlight found searches - enable this OR hlsearch
-set mouse+=a " Don't select/copy line numbers
+set nohlsearch                    " Don't highlight found searches - enable this OR hlsearch
+set mouse+=a                      " Don't select/copy line numbers
+"set signcolumn=yes                " Always show sign columns - avoids "stuttering" behaviour on change
 
 let mapleader = ","
 
+set termguicolors
+
 "--- Theme ---"
+""" Gruvbox
 let g:gruvbox_italic = 1
 let g:gruvbox_italicize_comments = 1
 let g:gruvbox_transparent_bg = 0
 let g:gruvbox_contrast_light = "medium"
 " set background=dark    " Setting dark mode
-set background=light   " Setting light mode
-colorscheme gruvbox
+"set background=light   " Setting light mode
+"colorscheme gruvbox
+
+colorscheme kanagawa
+
+""" Git Diff
+"""" cterm - sets the style
+"""" ctermfg - set the text color
+"""" ctermbg - set the highlighting
+"""" DiffAdd - line was added
+"""" DiffDelete - line was removed
+"""" DiffChange - part of the line was changed (highlights the whole line)
+"""" DiffText - the exact part of the line that changed
+hi! DiffAdd 		gui=NONE guifg=black ctermfg=0 guibg=#c9ebc0 ctermbg=Black
+hi! DiffDelete 	gui=NONE guifg=black ctermfg=0 guibg=#f7cfbf ctermbg=Black
+hi! DiffChange 	gui=NONE guifg=black ctermfg=0 guibg=#d2e1e0 ctermbg=Black
+hi! DiffText 		gui=NONE guifg=black ctermfg=0 guibg=#d2e1e0 ctermbg=Black
+
+hi! link GitGutterAdd DiffAdd
+hi! link GitGutterChange DiffChange
+hi! link GitGutterDelete DiffDelete
+
+set tabpagemax=50
 
 " If you don't want to exclude hidden files, use the following command
 " --files-with-matches only print filenames with matches
@@ -92,6 +117,30 @@ nnoremap <leader>j :cprevious<CR>
 nnoremap <leader>k :cnext<CR>
 " 				Close the List window
 nnoremap <leader>l :cclose<CR>
+
+" Quickly insert an empty new line
+nnoremap <leader>oo i<CR><ESC>
+
+" vim-floaterm
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+
+
+"================================
+" Autocmds
+"================================
+"### Use relative numbers in normal mode; absolute numbers everywhere else.
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 "================================
 " Lua
