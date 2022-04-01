@@ -7,7 +7,7 @@ local nvim_lsp = require('lspconfig')
 local configs = require('lspconfig/configs')
 local util = require "lspconfig/util"
 
-configs.vim_language_server = {
+nvim_lsp.vimls.setup {
   default_config = {
     cmd = {'vim-language-server', '--stdio'};
     filetypes = {'vim'};
@@ -34,7 +34,18 @@ nvim_lsp.gopls.setup {
   },
 }
 
-local servers = { }
+nvim_lsp.golangci_lint_ls.setup{
+  default_config = {
+    cmd = { "golangci-lint-langserver" },
+    filetypes = { "go", "gomod" },
+    init_options = {
+      command = { "golangci-lint", "run", "--out-format", "json" }
+    },
+    root_dir = util.root_pattern('go.work') or root_pattern('go.mod', '.golangci.yaml', '.git'),
+  }
+}
+
+local servers = { 'vimls', 'golangci_lint_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

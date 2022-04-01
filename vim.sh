@@ -9,8 +9,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # coc installs (advice from :CheckHealth)
 # Make sure permissions are correct first
-sudo chown -R $USER /Library/Python
-pip3 install pynvim
+#sudo chown -R $USER /Library/Python
+#pip3 install pynvim
+
 # Make sure permissions are correct first
 sudo chown -R $USER /usr/local/lib/node_modules
 npm install -g neovim
@@ -19,3 +20,6 @@ npm install -g neovim
 brew install fzf
 # install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
+
+# Install vim-language-server
+npm install -g vim-language-server

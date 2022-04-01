@@ -6,19 +6,16 @@ require('plugins/plugins')
 --################
 --> Plugin Configuration
 --################
--- require('plugins/lualine')
 require('plugins/feline')
 require('plugins/gps')
-
 require('plugins/rhubarb')
 require('plugins/treesitter')
-
---require('plugins/gitgutter')
 require('plugins/gitsigns')
-
 require('plugins/telescope')
 require('plugins/nvim-cmp')
+require('plugins/commentary')
 
+require('plugins/dap').setup()
 
 --################
 --> LSP
@@ -31,3 +28,4 @@ require('lsp/go')
 --> Mappings
 --################
 require('mappings/trouble')
+require('mappings/dap')

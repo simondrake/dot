@@ -15,10 +15,25 @@ set fileformats=unix,dos,mac    	" Prefer Unix over Windows over OS 9 formats
 set ignorecase                   	" Search case insensitive...
 set cursorline                   	" Highlight the line containing the cursor
 set completeopt=menuone,noselect 	" Completion Preview
-" set hlsearch                    " Highlight found searches - enable this OR nohlsearch
-set nohlsearch                    " Don't highlight found searches - enable this OR hlsearch
-set mouse+=a                      " Don't select/copy line numbers
-"set signcolumn=yes                " Always show sign columns - avoids "stuttering" behaviour on change
+" set hlsearch                    	" Highlight found searches - enable this OR nohlsearch
+set nohlsearch                    	" Don't highlight found searches - enable this OR hlsearch
+set mouse+=a                      	" Don't select/copy line numbers
+set signcolumn=yes                	" Always show sign columns - avoids "stuttering" behaviour on change
+
+
+" set noexpandtab                     " Make sure that every file uses real tabs, not spaces
+set expandtab                     	" Use spaces, not tabs
+set shiftround                      " Round indent to multiple of 'shiftwidth'
+set smartindent                     " Do smart indenting when starting a new line
+set autoindent                      " Copy indent from current line, over to the new line
+
+" Set the tab width
+let s:tabwidth=2
+exec 'set tabstop='    .s:tabwidth
+exec 'set shiftwidth=' .s:tabwidth
+exec 'set softtabstop='.s:tabwidth
+
+set noshowmode                    	" Turn off the default mode indicator (INSERT etc) as it's handled by the statusline
 
 let mapleader = ","
 
@@ -98,8 +113,11 @@ nnoremap <C-L> <C-W><C-L> " RIGHT - ctrl-l instead of ctrl-w then l
 " Map escape work properly in terminal mode
 tnoremap <Esc> <C-\><C-n>
 
+" fzf
+nnoremap <leader>ff <cmd>Files <cr>
+
 " Telescope
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden','--no-ignore-vcs', '-g', '!.git', }})<cr>
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden','--no-ignore-vcs', '-g', '!.git', }})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
@@ -130,7 +148,6 @@ nnoremap   <silent>   <F9>    :FloatermNext<CR>
 tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-
 
 "================================
 " Autocmds
