@@ -48,6 +48,7 @@ components.active[1] = {
        ' ',
     },
   },
+  -- Current context
   {
     provider = function() return gps.get_location() end,
     enabled = function() return gps.is_available() end,
@@ -57,6 +58,9 @@ components.active[1] = {
       style = 'bold'
     }
   },
+  {
+    provider = 'lsp_progress'
+  }
 
 }
 

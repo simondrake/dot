@@ -60,12 +60,22 @@ require('packer').startup(function(use)
   -- }
 
   -- UI {
+  -- Themes
   -- use { 'morhetz/gruvbox' }
   use { 'rebelot/kanagawa.nvim' }
+  
+  use { "folke/twilight.nvim" }
 
-  -- use { 'arkav/lualine-lsp-progress' } -- LSP progress in lualine
-  use { 'feline-nvim/feline.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  use { "SmiteshP/nvim-gps" }
+  -- Lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
+  use { 'arkav/lualine-lsp-progress' } -- LSP progress in lualine
   -- }
   
   -- Language Support {

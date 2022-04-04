@@ -1,3 +1,5 @@
+local gps = require("nvim-gps")
+
 require('lualine').setup{
   options = {
     icons_enabled = true,
@@ -7,15 +9,24 @@ require('lualine').setup{
     disabled_filetypes = {}
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
+    lualine_a = {
+      'mode'
+    },
+    lualine_b = {
+      'branch', 
+      'diff'
+    },
     lualine_c = {
       {
         'filename',
         file_status = false, -- displays file status (readonly status, modified status)
         path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
       },
-      'lsp_progress'
+      'lsp_progress',
+      { 
+        gps.get_location, 
+        cond = gps.is_available 
+      },
     },
     lualine_x = {'encoding', 'filetype'},
     lualine_y = {'progress'},
