@@ -90,28 +90,28 @@ PROMPT=$PROMPT"
 export EDITOR='nvim'
 
 # Welcome message for Tmux
-if [ ! -z "$TMUX" ]; then
-    echo " _________________________________________"
-    echo "|                                         |"
-    echo "|         Tmux session started            |"
-    echo "|                                         |"
-    echo "| * Prefix: \`                             |"
-    echo "|                                         |"
-    echo "| * Split Horizontally: <prefix> -        |"
-    echo "| * Split Vertically: <prefix> \\          |"
-    echo "|                                         |"
-    echo "| * New Window: <prefix> c                |"
-    echo "| * Previous Window: <prefix> p           |"
-    echo "| * Next Window: <prefix> n               |"
-    echo "| * GoTo Window: <prefix> <number>        |"
-    echo "|                                         |"
-    echo " -----------------------------------------"
-    echo "        \   ^__^"
-    echo "         \  (oo)\_______"
-    echo "            (__)\       )\/\\"
-    echo "                ||----w |"
-    echo "                ||     ||"
-fi
+# if [ ! -z "$TMUX" ]; then
+#     echo " _________________________________________"
+#     echo "|                                         |"
+#     echo "|         Tmux session started            |"
+#     echo "|                                         |"
+#     echo "| * Prefix: \`                             |"
+#     echo "|                                         |"
+#     echo "| * Split Horizontally: <prefix> -        |"
+#     echo "| * Split Vertically: <prefix> \\          |"
+#     echo "|                                         |"
+#     echo "| * New Window: <prefix> c                |"
+#     echo "| * Previous Window: <prefix> p           |"
+#     echo "| * Next Window: <prefix> n               |"
+#     echo "| * GoTo Window: <prefix> <number>        |"
+#     echo "|                                         |"
+#     echo " -----------------------------------------"
+#     echo "        \   ^__^"
+#     echo "         \  (oo)\_______"
+#     echo "            (__)\       )\/\\"
+#     echo "                ||----w |"
+#     echo "                ||     ||"
+# fi
 
 # Start tmux automatically
 #if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
