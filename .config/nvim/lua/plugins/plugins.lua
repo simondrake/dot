@@ -80,6 +80,12 @@ require('packer').startup(function(use)
   
   -- Language Support {
     -- use { 'sheerun/vim-polyglot' }
+    use { 'rodjek/vim-puppet'}
+    use { 'hashivim/vim-terraform'}
+    use { 'google/vim-jsonnet'}
+    use { 'uarun/vim-protobuf'}
+    use { 'bufbuild/vim-buf'}
+    use { 'tsandall/vim-rego'}
   -- }
 
 
@@ -92,5 +98,11 @@ require('packer').startup(function(use)
   use { 'leoluz/nvim-dap-go' }
   use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
   use { 'theHamsta/nvim-dap-virtual-text' }
+  -- }
+
+
+  -- Journal {
+  use { 'junegunn/goyo.vim' }
+  use { 'junegunn/limelight.vim' }
   -- }
 end)

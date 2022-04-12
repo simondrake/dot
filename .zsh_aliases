@@ -12,9 +12,14 @@ alias agi='ag --hidden --skip-vcs-ignore --ignore-case --ignore ".git"'
 # Same as above, but only returns the files and not the individual lines
 alias agif='ag --files-with-matches --ignore-case --skip-vcs-ignore --hidden --ignore ".git"'
 
+# Run the last line as sudo
 alias fuck='sudo $(fc -ln -1)'
 
+# SSH with the kitten plugin
 alias kssh='kitty +kitten ssh'
+
+# quick access to journal in Vim
+alias j="nvim +'let g:journal_from_zsh=1' +'call ToggleJournal()'"
 
 ######## ZSH #######
 alias reload='exec zsh'
@@ -66,6 +71,9 @@ alias kgcj="kubectl get cronjobs"
 
 ######## GIT ############
 alias g='git'
+
+# cd to root git directory
+alias git-root='cd $(git rev-parse --show-toplevel)'
 
 alias ga='git add'
 alias gaa='git add --all'

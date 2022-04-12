@@ -11,7 +11,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
 export GOPATH=$HOME/go
 export GOPRIVATE=cd.splunkdev.com
-#export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
+# export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
 export GOPROXY=https://proxy.golang.org\|direct
 
 export REVIEW_BASE="origin/mainline"
@@ -113,10 +113,14 @@ export EDITOR='nvim'
 #     echo "                ||     ||"
 # fi
 
-# Start tmux automatically
-#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#  exec tmux
-#fi
+# Clear scrollback and screen for zsh and tmux
+# Use ctrl+L
+clear-scrollback-and-screen () {
+  zle clear-screen
+  tmux clear-history
+}
+zle -N clear-scrollback-and-screen
+bindkey -v '^L' clear-scrollback-and-screen
 
 # disable bracketed paste mode if the terminal doesn't support escape sequences
 if [[ $TERM = dumb ]]; then

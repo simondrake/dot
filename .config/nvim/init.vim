@@ -78,6 +78,35 @@ set tabpagemax=50
 " --ignore ignore files/directories matching pattern
 let $FZF_DEFAULT_COMMAND='ag --files-with-matches --ignore-case --skip-vcs-ignore --hidden --ignore .git'
 
+" Journaling
+let g:journal_file = '~/.journal.md'
+function! ToggleJournal()  " quickly jump to and from journal
+  if expand('%:p') != expand(g:journal_file)  " open journal and set theme
+    let g:journal_last_tab = tabpagenr()
+    tabnew
+    execute 'edit' g:journal_file
+    silent! loadview  " load stored view so we always return to the same place
+    Goyo120
+  else
+    mkview  " store our view of the file so it can be restored
+    quit  " quit Goyo mode
+    silent write
+    if get(g:, "journal_from_zsh", 0) == 1
+      quitall  " easy close back to shell
+    else
+      quit  " quit original tab
+    endif
+    execute 'tabnext ' . g:journal_last_tab
+  endif
+endfunction
+
+" open and close journal
+nnoremap <silent> <leader>j :call ToggleJournal()<CR>
+
+" sync Limelight with Goyo
+autocmd! User GoyoEnter Limelight  
+autocmd! User GoyoLeave Limelight!
+
 "================================
 " Mappings
 "================================
