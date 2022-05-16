@@ -13,3 +13,5 @@
 -- Custom comment rules
 -- Rego -> #
 vim.api.nvim_command('autocmd FileType rego setlocal commentstring=#\\ %s')
+-- go mod -> //
+vim.api.nvim_command('autocmd FileType gomod setlocal commentstring=//\\ %s')

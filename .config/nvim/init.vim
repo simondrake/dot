@@ -59,14 +59,14 @@ colorscheme kanagawa
 """" DiffDelete - line was removed
 """" DiffChange - part of the line was changed (highlights the whole line)
 """" DiffText - the exact part of the line that changed
-hi! DiffAdd 		gui=NONE guifg=black ctermfg=0 guibg=#c9ebc0 ctermbg=Black
-hi! DiffDelete 	gui=NONE guifg=black ctermfg=0 guibg=#f7cfbf ctermbg=Black
-hi! DiffChange 	gui=NONE guifg=black ctermfg=0 guibg=#d2e1e0 ctermbg=Black
-hi! DiffText 		gui=NONE guifg=black ctermfg=0 guibg=#d2e1e0 ctermbg=Black
+" hi! DiffAdd 		gui=NONE guifg=black ctermfg=0 guibg=#c9ebc0 ctermbg=Black
+" hi! DiffDelete 	gui=NONE guifg=black ctermfg=0 guibg=#f7cfbf ctermbg=Black
+" hi! DiffChange 	gui=NONE guifg=black ctermfg=0 guibg=#d2e1e0 ctermbg=Black
+" hi! DiffText 		gui=NONE guifg=black ctermfg=0 guibg=#d2e1e0 ctermbg=Black
 
-hi! link GitGutterAdd DiffAdd
-hi! link GitGutterChange DiffChange
-hi! link GitGutterDelete DiffDelete
+" hi! link GitGutterAdd DiffAdd
+" hi! link GitGutterChange DiffChange
+" hi! link GitGutterDelete DiffDelete
 
 set tabpagemax=50
 
@@ -178,6 +178,23 @@ tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
+" Search in Visual Selection
+" Select the text in visual mode and then do a normal search with /
+function! RangeSearch(direction)
+  call inputsave()
+  let g:srchstr = input(a:direction)
+  call inputrestore()
+  if strlen(g:srchstr) > 0
+    let g:srchstr = g:srchstr.
+          \ '\%>'.(line("'<")-1).'l'.
+          \ '\%<'.(line("'>")+1).'l'
+  else
+    let g:srchstr = ''
+  endif
+endfunction
+vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr) > 0\|exec '/'.g:srchstr\|endif<CR>
+vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|exec '?'.g:srchstr\|endif<CR>
+
 "================================
 " Autocmds
 "================================
@@ -187,6 +204,13 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+"### Restore cursor position upon reopening the file
+" augroup last_cursor_position
+"   autocmd!
+"   autocmd BufReadPost *
+"     \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
+" augroup END
 
 "================================
 " Lua

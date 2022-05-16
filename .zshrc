@@ -29,11 +29,10 @@ ZSH_THEME="ys"
 HISTCONTROL=ignorespace
 
 plugins=(dotenv history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+# plugins=(zsh-syntax-highlighting)
 
 ZSH_DOTENV_FILE=local.env
 ZSH_DOTENV_PROMPT=false
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 DISABLE_MAGIC_FUNCTIONS=true
 
@@ -50,9 +49,13 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_aliases
 source $HOME/.zsh_functions
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+ZSH_HIGHLIGHT_STYLES[comment]=fg=245
+
 autoload -U colors; colors
 source $HOME/custom-zsh-prompts/kube-ps1/kube-ps1.sh
 source $HOME/custom-zsh-prompts/cloudctl-ps1/cloudctl-ps1.sh
+
 
 # Enable vim-mode
 bindkey -v
@@ -63,6 +66,7 @@ function zle-keymap-select {
  VIMODE="${${KEYMAP/vicmd/[n]}/(main|viins)/[i]}"
  zle reset-prompt
 }
+
 
 zle -N zle-keymap-select
 
@@ -112,6 +116,7 @@ export EDITOR='nvim'
 #     echo "                ||----w |"
 #     echo "                ||     ||"
 # fi
+
 
 # Clear scrollback and screen for zsh and tmux
 # Use ctrl+L

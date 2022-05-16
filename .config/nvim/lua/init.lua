@@ -15,6 +15,7 @@ require('plugins/telescope')
 require('plugins/nvim-cmp')
 require('plugins/commentary')
 require('plugins/twilight')
+require('plugins/nnn')
 
 require('plugins/dap').setup()
 
@@ -30,3 +31,8 @@ require('lsp/go')
 --################
 require('mappings/trouble')
 require('mappings/dap')
+
+--################
+--> Autocommands
+--################
+require('autocommands')

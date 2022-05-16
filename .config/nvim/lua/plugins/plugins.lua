@@ -20,9 +20,9 @@ require('packer').startup(function(use)
     config = function()
       require("trouble").setup {}
     end
-  }                                                                                 -- Diagnostics etc 
+  }                                                                                 -- Diagnostics etc
   -- }
-  
+
   -- Neovim 0.5 {
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }                      -- Highlighting etc
   use { 'mfussenegger/nvim-lint' } 				                                          -- Linter
@@ -34,7 +34,7 @@ require('packer').startup(function(use)
   use { "hrsh7th/cmp-cmdline" }					                                            -- Command line completion
   use { "hrsh7th/nvim-cmp" }					                                              -- Completion plugin
   -- }
-  
+
   -- lsp {
   use { 'neovim/nvim-lspconfig' }				                                            -- Common config for LSP
   use { 'onsails/lspkind-nvim' }				                                            -- Pictograms
@@ -57,13 +57,14 @@ require('packer').startup(function(use)
   use { 'junegunn/fzf', run = './install --bin' }
   use { 'junegunn/fzf.vim' }
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+  use { 'luukvbaal/nnn.nvim' }
   -- }
 
   -- UI {
   -- Themes
   -- use { 'morhetz/gruvbox' }
   use { 'rebelot/kanagawa.nvim' }
-  
+
   use { "folke/twilight.nvim" }
 
   -- Lualine
@@ -77,7 +78,7 @@ require('packer').startup(function(use)
   }
   use { 'arkav/lualine-lsp-progress' } -- LSP progress in lualine
   -- }
-  
+
   -- Language Support {
     -- use { 'sheerun/vim-polyglot' }
     use { 'rodjek/vim-puppet'}
