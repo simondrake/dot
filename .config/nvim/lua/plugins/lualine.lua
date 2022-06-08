@@ -13,19 +13,19 @@ require('lualine').setup{
       'mode'
     },
     lualine_b = {
-      'branch', 
+      'branch',
       'diff'
     },
     lualine_c = {
       {
         'filename',
         file_status = false, -- displays file status (readonly status, modified status)
-        path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
+        path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
       },
       'lsp_progress',
-      { 
-        gps.get_location, 
-        cond = gps.is_available 
+      {
+        gps.get_location,
+        cond = gps.is_available
       },
     },
     lualine_x = {'encoding', 'filetype'},

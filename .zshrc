@@ -11,8 +11,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
 export GOPATH=$HOME/go
 export GOPRIVATE=cd.splunkdev.com
-# export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
-export GOPROXY=https://proxy.golang.org\|direct
+export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
+# export GOPROXY=https://proxy.golang.org\|direct
 
 export REVIEW_BASE="origin/mainline"
 

@@ -28,7 +28,7 @@ nvim_lsp.gopls.setup {
   single_file_support = true,
   settings = {
     gopls = {
-      buildFlags =  {"-tags=integration"},
+      buildFlags =  {"-tags=integration,smoke"},
       ["local"] = "cd.splunkdev.com",
     }
   },
