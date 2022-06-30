@@ -9,14 +9,8 @@
 * `git remote add origin https://github.com/simondrake/dot.git`
 * `git pull`
 
-## Other Steps
-
-
-* [Install Node.js](https://nodejs.org)
-* [Install iTerm2](https://iterm2.com/)
-* [Wally](https://ergodox-ez.com/pages/wally)
-
 ### Apps
 * [Skitch](https://evernote.com/products/skitch) OR [Lightshot](https://app.prntscr.com/en/index.html)
 * [Rectangle](https://rectangleapp.com/)
 * [Flycut](https://github.com/TermiT/Flycut)
+* [Wally](https://ergodox-ez.com/pages/wally)
