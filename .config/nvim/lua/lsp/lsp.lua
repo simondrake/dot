@@ -34,16 +34,16 @@ nvim_lsp.gopls.setup {
   },
 }
 
-nvim_lsp.golangci_lint_ls.setup{
-  default_config = {
-    cmd = { "golangci-lint-langserver" },
-    filetypes = { "go", "gomod" },
-    init_options = {
-      command = { "golangci-lint", "run", "--out-format", "json" }
-    },
-    root_dir = util.root_pattern('go.work') or root_pattern('go.mod', '.golangci.yaml', '.git'),
-  }
-}
+-- nvim_lsp.golangci_lint_ls.setup{
+--   default_config = {
+--     cmd = { "golangci-lint-langserver" },
+--     filetypes = { "go", "gomod" },
+--     init_options = {
+--       command = { "golangci-lint", "run", "--out-format", "json" }
+--     },
+--     root_dir = util.root_pattern('go.work') or root_pattern('go.mod', '.golangci.yaml', '.git'),
+--   }
+-- }
 
 local servers = { 'vimls', 'golangci_lint_ls' }
 for _, lsp in ipairs(servers) do

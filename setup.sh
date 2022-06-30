@@ -37,3 +37,6 @@ brew install ripgrep
 
 # Install fd
 brew install fd
+
+# install dasel
+brew install dasel
