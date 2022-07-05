@@ -8,7 +8,7 @@ then
 fi
 
 # Install latest version of vim
-brew install vim --with-override-system-vi
+brew install vim
 
 # Install tmux
 # brew install tmux
@@ -21,9 +21,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # Install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# Install watchman - useful for coc - https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#optional-install-watchman-for-file-watching
-# brew install watchman
 
 # Install packer
 git clone https://github.com/wbthomason/packer.nvim\

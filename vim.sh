@@ -13,7 +13,10 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 #pip3 install pynvim
 
 # Make sure permissions are correct first
-sudo chown -R $USER /usr/local/lib/node_modules
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
+
 npm install -g neovim
 
 # fzf
