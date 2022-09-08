@@ -73,8 +73,13 @@ gcmsgnv() {
   git commit -m "$1" --no-verify
 }
 
-mkcd () { mkdir -p "$@" && cd "$_"; }
+cleanLocal() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  echo "resetting to $branch"
+  rm -rf ./deploy/terraform && git checkout "$branch" -- deploy/terraform
+}
 
+######## Search ############
 # ag
 # -> ignore-case
 # -> with ignore pattern
@@ -96,4 +101,15 @@ agifwi() {
   # "$1" -> First argument
   # "${@:2}" -> Second argument onwards
   agif "$1" -p <(printf "*%s*\n" "${@:2}")
+}
+
+######## Other ############
+mkcd () { mkdir -p "$@" && cd "$_"; }
+
+# run one in each directory
+#
+# Accepts a command to run and runs it in each directory
+roied() {
+  # \( ! -name . \) avoids executing the command in the current directory.
+  find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && $1" \;
 }

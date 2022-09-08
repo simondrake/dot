@@ -18,9 +18,6 @@ alias fuck='sudo $(fc -ln -1)'
 # SSH with the kitten plugin
 alias kssh='kitty +kitten ssh'
 
-# quick access to journal in Vim
-alias j="nvim +'let g:journal_from_zsh=1' +'call ToggleJournal()'"
-
 ######## ZSH #######
 alias reload='exec zsh'
 
@@ -31,7 +28,7 @@ alias ogl='open -a "/Applications/GoLand.app"'
 alias nd='terminal-notifier -message "Task has completed!" -title "Terminal"'
 
 ######## Terraform #######
-alias cleanLocal="rm -rf ./deploy/terraform && git checkout $(git rev-parse --abbrev-ref HEAD) -- deploy/terraform"
+# alias cleanLocal="rm -rf ./deploy/terraform && git checkout $(git rev-parse --abbrev-ref HEAD) -- deploy/terraform"
 
 ######## AWS #######
 alias awslocal="aws --endpoint-url=http://minikube:34566"

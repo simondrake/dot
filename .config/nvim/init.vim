@@ -12,7 +12,8 @@ set number                      	" Show line numbers
 set splitright                  	" Vertical windows should be split to right
 set splitbelow                  	" Horizontal windows should split to bottom
 set fileformats=unix,dos,mac    	" Prefer Unix over Windows over OS 9 formats
-set ignorecase                   	" Search case insensitive...
+" set ignorecase                   	" Search case insensitive
+set noignorecase                   	" Search case sensitive
 set cursorline                   	" Highlight the line containing the cursor
 set completeopt=menuone,noselect 	" Completion Preview
 " set hlsearch                    	" Highlight found searches - enable this OR nohlsearch
@@ -104,7 +105,7 @@ endfunction
 nnoremap <silent> <leader>j :call ToggleJournal()<CR>
 
 " sync Limelight with Goyo
-autocmd! User GoyoEnter Limelight  
+autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 "================================

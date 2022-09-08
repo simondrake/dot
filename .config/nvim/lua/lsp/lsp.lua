@@ -30,22 +30,11 @@ nvim_lsp.gopls.setup {
     gopls = {
       buildFlags =  {"-tags=integration,smoke"},
       ["local"] = "cd.splunkdev.com",
-    }
+    },
   },
 }
 
--- nvim_lsp.golangci_lint_ls.setup{
---   default_config = {
---     cmd = { "golangci-lint-langserver" },
---     filetypes = { "go", "gomod" },
---     init_options = {
---       command = { "golangci-lint", "run", "--out-format", "json" }
---     },
---     root_dir = util.root_pattern('go.work') or root_pattern('go.mod', '.golangci.yaml', '.git'),
---   }
--- }
-
-local servers = { 'vimls', 'golangci_lint_ls' }
+local servers = { 'vimls', 'golangci_lint_ls', 'terraformls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

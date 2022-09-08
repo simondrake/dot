@@ -3,6 +3,7 @@
 * Run the `setup.sh` script
 * Run the `vim.sh` script
 * Run the `go.sh` script
+* Run the `lsp.sh` script to set-up nvim LSP specific things
 
 ## Cloning into home directory
 

@@ -11,8 +11,11 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
 export GOPATH=$HOME/go
 export GOPRIVATE=cd.splunkdev.com
-export GOPROXY=https://repo.splunk.com/artifactory/go\|\https://proxy.golang.org\|direct
+export GOPROXY=https://repo.splunk.com/artifactory/api/go/go\|\https://proxy.golang.org\|direct
 # export GOPROXY=https://proxy.golang.org\|direct
+
+# K8s
+export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/remote-config"
 
 export REVIEW_BASE="origin/mainline"
 
@@ -93,31 +96,6 @@ PROMPT=$PROMPT"
 
 export EDITOR='nvim'
 
-# Welcome message for Tmux
-# if [ ! -z "$TMUX" ]; then
-#     echo " _________________________________________"
-#     echo "|                                         |"
-#     echo "|         Tmux session started            |"
-#     echo "|                                         |"
-#     echo "| * Prefix: \`                             |"
-#     echo "|                                         |"
-#     echo "| * Split Horizontally: <prefix> -        |"
-#     echo "| * Split Vertically: <prefix> \\          |"
-#     echo "|                                         |"
-#     echo "| * New Window: <prefix> c                |"
-#     echo "| * Previous Window: <prefix> p           |"
-#     echo "| * Next Window: <prefix> n               |"
-#     echo "| * GoTo Window: <prefix> <number>        |"
-#     echo "|                                         |"
-#     echo " -----------------------------------------"
-#     echo "        \   ^__^"
-#     echo "         \  (oo)\_______"
-#     echo "            (__)\       )\/\\"
-#     echo "                ||----w |"
-#     echo "                ||     ||"
-# fi
-
-
 # Clear scrollback and screen for zsh and tmux
 # Use ctrl+L
 clear-scrollback-and-screen () {
@@ -141,6 +119,14 @@ fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit && compinit
 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  # FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 if which kubectl > /dev/null 2>&1; then
     # zsh kubectl auto-completion
     source <(kubectl completion zsh)
@@ -154,3 +140,6 @@ if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 [ -f "/Users/simondrake/.ghcup/env" ] && source "/Users/simondrake/.ghcup/env" # ghcup-env
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

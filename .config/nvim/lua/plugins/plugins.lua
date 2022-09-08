@@ -9,6 +9,7 @@ require('packer').startup(function(use)
   use { 'tpope/vim-fugitive' }					                                            -- git wrapper
   use { 'tpope/vim-rhubarb' }					                                              -- GitHub extension for fugitive
   use { 'shumphrey/fugitive-gitlab.vim' }			                                      -- GitLab extension for fugitive
+  use { 'f-person/git-blame.nvim' }
   --   }
 
   -- General {
@@ -87,8 +88,10 @@ require('packer').startup(function(use)
     use { 'uarun/vim-protobuf'}
     use { 'bufbuild/vim-buf'}
     use { 'tsandall/vim-rego'}
+    use { 'vim-test/vim-test' }
+    -- Markdown
+    use { 'dhruvasagar/vim-table-mode' }
   -- }
-
 
   -- Terminal {
   use { 'voldikss/vim-floaterm' }
@@ -101,9 +104,7 @@ require('packer').startup(function(use)
   use { 'theHamsta/nvim-dap-virtual-text' }
   -- }
 
-
-  -- Journal {
-  use { 'junegunn/goyo.vim' }
-  use { 'junegunn/limelight.vim' }
+  -- Note taking {
   -- }
+
 end)
