@@ -65,8 +65,7 @@ require('packer').startup(function(use)
   -- Themes
   -- use { 'morhetz/gruvbox' }
   use { 'rebelot/kanagawa.nvim' }
-
-  use { "folke/twilight.nvim" }
+  use { 'sunjon/shade.nvim' }
 
   -- Lualine
   use {
@@ -99,7 +98,7 @@ require('packer').startup(function(use)
 
   -- Debugging {
   use { 'mfussenegger/nvim-dap' }
-  use { 'leoluz/nvim-dap-go' }
+  use { 'simondrake/nvim-dap-go' }
   use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
   use { 'theHamsta/nvim-dap-virtual-text' }
   -- }
@@ -107,4 +106,6 @@ require('packer').startup(function(use)
   -- Note taking {
   -- }
 
+  -- Other {
+  -- }
 end)

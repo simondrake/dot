@@ -14,7 +14,7 @@ require('plugins/gitsigns')
 require('plugins/telescope')
 require('plugins/nvim-cmp')
 require('plugins/commentary')
-require('plugins/twilight')
+require('plugins/shade')
 
 require('plugins/dap').setup()
 

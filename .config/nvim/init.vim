@@ -148,7 +148,7 @@ nnoremap <leader>ff <cmd>Files <cr>
 
 " Telescope
 " nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden','--no-ignore-vcs', '-g', '!.git', }})<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
@@ -170,14 +170,14 @@ nnoremap <leader>l :cclose<CR>
 nnoremap <leader>oo i<CR><ESC>
 
 " vim-floaterm
-nnoremap   <silent>   <F7>    :FloatermNew<CR>
-tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <F8>    :FloatermPrev<CR>
-tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <leader>fn    :FloatermNew<CR>
+tnoremap   <silent>   <leader>fn    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <leader>fp    :FloatermPrev<CR>
+tnoremap   <silent>   <leader>fp    <C-\><C-n>:FloatermPrev<CR>
 nnoremap   <silent>   <F9>    :FloatermNext<CR>
 tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+nnoremap   <silent>   <leader>ft   :FloatermToggle<CR>
+tnoremap   <silent>   <leader>ft   <C-\><C-n>:FloatermToggle<CR>
 
 " Search in Visual Selection
 " Select the text in visual mode and then do a normal search with /
