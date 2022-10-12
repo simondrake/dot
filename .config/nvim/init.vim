@@ -28,6 +28,11 @@ set shiftround                      " Round indent to multiple of 'shiftwidth'
 set smartindent                     " Do smart indenting when starting a new line
 set autoindent                      " Copy indent from current line, over to the new line
 
+set nobackup
+set noswapfile
+set undofile
+
+
 " Set the tab width
 let s:tabwidth=2
 exec 'set tabstop='    .s:tabwidth
@@ -144,7 +149,9 @@ nnoremap <C-L> <C-W><C-L> " RIGHT - ctrl-l instead of ctrl-w then l
 tnoremap <Esc> <C-\><C-n>
 
 " fzf
-nnoremap <leader>ff <cmd>Files <cr>
+nnoremap <leader>ff <cmd>Files <CR>
+" Files in the current files directory
+nnoremap <leader>fd <cmd>Files %:p:h<CR>
 
 " Telescope
 " nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ find_command = {'rg', '--files', '--hidden','--no-ignore-vcs', '-g', '!.git', }})<cr>

@@ -15,6 +15,7 @@ require('plugins/telescope')
 require('plugins/nvim-cmp')
 require('plugins/commentary')
 require('plugins/shade')
+require('plugins/null-ls')
 
 require('plugins/dap').setup()
 

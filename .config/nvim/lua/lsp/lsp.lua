@@ -42,34 +42,38 @@ nvim_lsp.gopls.setup {
   },
 }
 
--- nvim_lsp.sumneko_lua.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   cmd = {"lua-language-server"},
---   filetypes = {"lua"},
---   root_dir = util.root_pattern(".luarc.json", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", ".git"),
---   single_file_support = true,
---   settings = {
---     Lua = {
---       runtime = {
---         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
---         version = 'LuaJIT',
---       },
---       diagnostics = {
---         -- Get the language server to recognize the `vim` global
---         globals = {'vim'},
---       },
---       workspace = {
---         -- Make the server aware of Neovim runtime files
---         library = vim.api.nvim_get_runtime_file("", true),
---       },
---       -- Do not send telemetry data containing a randomized but unique identifier
---       telemetry = {
---         enable = false,
---       },
---     },
---   },
--- }
+nvim_lsp.rust_analyzer.setup({
+  on_attach=on_attach,
+  capabilities = capabilities,
+  cmd = { "rust-analyzer" },
+  filetypes = { "rust" },
+  root_dir = util.root_pattern("Cargo.toml", "rust-project.json"),
+  settings = {
+    ["rust-analyzer"] = {
+      imports = {
+        granularity = {
+            group = "module",
+        },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = {
+            enable = true,
+        },
+      },
+      procMacro = {
+        enable = true
+      },
+    }
+    }
+})
+
+-- nvim_lsp.tsserver.setup {
+--    on_attach = function(client, _)
+--      client.server_capabilities.documentFormattingProvider = false
+--      vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format()')
+--    end
+--  }
 
 local servers = { 'vimls', 'golangci_lint_ls', 'terraformls' }
 for _, lsp in ipairs(servers) do
