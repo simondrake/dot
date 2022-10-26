@@ -14,8 +14,9 @@ require('plugins/gitsigns')
 require('plugins/telescope')
 require('plugins/nvim-cmp')
 require('plugins/commentary')
-require('plugins/shade')
+-- require('plugins/shade')
 require('plugins/null-ls')
+require('plugins/choosewin')
 
 require('plugins/dap').setup()
 
@@ -31,6 +32,7 @@ require('lsp/go')
 --################
 require('mappings/trouble')
 require('mappings/dap')
+require('mappings/choosewin')
 
 --################
 --> Autocommands

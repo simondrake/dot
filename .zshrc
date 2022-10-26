@@ -41,10 +41,6 @@ DISABLE_MAGIC_FUNCTIONS=true
 
 bindkey ' ' magic-space # enable option to expand & edit a command before running it by entering a [space]
 
-alias vi="nvim"
-alias vim="nvim"
-alias vinone="nvim -u NONE"
-
 # Change % to an empty string
 PROMPT_EOL_MARK=''
 

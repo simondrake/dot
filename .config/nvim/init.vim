@@ -21,7 +21,6 @@ set nohlsearch                    	" Don't highlight found searches - enable thi
 set mouse+=a                      	" Don't select/copy line numbers
 set signcolumn=yes                	" Always show sign columns - avoids "stuttering" behaviour on change
 
-
 " set noexpandtab                     " Make sure that every file uses real tabs, not spaces
 set expandtab                     	" Use spaces, not tabs
 set shiftround                      " Round indent to multiple of 'shiftwidth'
@@ -32,6 +31,8 @@ set nobackup
 set noswapfile
 set undofile
 
+filetype plugin on
+syntax on
 
 " Set the tab width
 let s:tabwidth=2
@@ -144,6 +145,11 @@ nnoremap <C-H> <C-W><C-H> " LEFT - ctrl-h instead of ctrl-w then h
 nnoremap <C-J> <C-W><C-J> " DOWN - ctrl-j instead of ctrl-w then j
 nnoremap <C-K> <C-W><C-K> " UP - ctrl-k instead of ctrl-w then k
 nnoremap <C-L> <C-W><C-L> " RIGHT - ctrl-l instead of ctrl-w then l
+
+" invoke with '-'
+" nmap  -  <Plug>(choosewin)
+" if you want to use overlay feature
+" let g:choosewin_overlay_enable = 1
 
 " Map escape work properly in terminal mode
 tnoremap <Esc> <C-\><C-n>

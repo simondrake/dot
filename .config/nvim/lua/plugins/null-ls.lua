@@ -85,9 +85,38 @@ local check_modules = {
     },
 }
 
-null_ls.register(no_really)
-null_ls.register(no_locals)
-null_ls.register(check_modules)
+local check_data = {
+    method = null_ls.methods.DIAGNOSTICS,
+    filetypes = { "terraform", "tf" },
+    generator = {
+        fn = function(params)
+            local diagnostics = {}
+            -- sources have access to a params object
+            -- containing info about the current file and editor state
+            for i, line in ipairs(params.content) do
+                local col, end_col = line:find("data%.")
+                if col and end_col then
+                    -- null-ls fills in undefined positions
+                    -- and converts source diagnostics into the required format
+                    table.insert(diagnostics, {
+                        row = i,
+                        col = col,
+                        end_col = end_col + 1,
+                        source = "check-data",
+                        message = "Check data is still correct",
+                        severity = vim.diagnostic.severity.INFO,
+                    })
+                end
+            end
+            return diagnostics
+        end,
+    },
+}
+
+-- null_ls.register(no_really)
+-- null_ls.register(no_locals)
+-- null_ls.register(check_modules)
+-- null_ls.register(check_data)
 
 null_ls.setup({
     sources = {

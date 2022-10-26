@@ -8,6 +8,7 @@ require('packer').startup(function(use)
   -- Pluins I'm not sure if I'll keep yet
   -- Testing {
   use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' } }
+  use { 't9md/vim-choosewin' }
   -- }
 
   -- Git {
@@ -71,7 +72,7 @@ require('packer').startup(function(use)
   -- Themes
   -- use { 'morhetz/gruvbox' }
   use { 'rebelot/kanagawa.nvim' }
-  use { 'sunjon/shade.nvim' }
+  -- use { 'sunjon/shade.nvim' }
 
   -- Lualine
   use {
