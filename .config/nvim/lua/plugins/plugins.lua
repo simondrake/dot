@@ -8,7 +8,7 @@ require('packer').startup(function(use)
   -- Pluins I'm not sure if I'll keep yet
   -- Testing {
   use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' } }
-  use { 't9md/vim-choosewin' }
+  use {'ggandor/leap.nvim' }
   -- }
 
   -- Git {
@@ -22,13 +22,8 @@ require('packer').startup(function(use)
   -- General {
   use { 'tpope/vim-sensible' }					                                            -- Defaults
   use { 'mg979/vim-visual-multi', branch = 'master' }		                            -- Multiple cursors
-  use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {}
-    end
-  }                                                                                 -- Diagnostics etc
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }                                                                                 -- Diagnostics etc
+  use { 't9md/vim-choosewin' }                                                      -- Nicer way to jump to panes
   -- }
 
   -- Neovim 0.5 {

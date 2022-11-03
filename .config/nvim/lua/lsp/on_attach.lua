@@ -29,18 +29,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  -- workspace = true shows diagnostics for the whole project
-  -- buf_set_keymap('n', 'Q', '<cmd>lua vim.diagnostic.setloclist({open_loclist = true, workspace = true, severity_limit = "Error" })<CR>', opts)
-  -- show Errors and Warnings for the whole project
-  -- buf_set_keymap('n', '<leader>Q', '<cmd>lua vim.diagnostic.setloclist({open_loclist = true, severity_limit = "Warning" })<CR>', opts)
-  -- buf_set_keymap('n', '<leader>W', '<cmd>lua vim.diagnostic.setloclist({open_loclist = true, workspace = true, severity_limit = "Warning" })<CR>', opts)
 
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setqflist()<CR>', opts)
 
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.documentFormattingProvider then
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    vim.api.nvim_command('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)')
-  elseif client.resolved_capabilities.document_range_formatting then
+    vim.api.nvim_command('autocmd BufWritePre <buffer> lua vim.lsp.buf.format()')
+  elseif client.server_capabilities.documentFormattingProvider then
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 end
