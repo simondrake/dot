@@ -73,6 +73,22 @@ gcmsgnv() {
   git commit -m "$1" --no-verify
 }
 
+gitreview() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  mainBranch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+  echo "reviewing '$branch' from main branch 'origin/$mainBranch'"
+  git reset --soft "origin/$mainBranch"
+  git reset # Make everything unstaged
+  git add -N .
+  nvim -c :G  # Use vim-fugitive for the review
+}
+
+greho() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  git reset --hard "origin/$branch"
+}
+
+######## Other ############
 cleanLocal() {
   branch=$(git rev-parse --abbrev-ref HEAD)
   echo "resetting to $branch"
