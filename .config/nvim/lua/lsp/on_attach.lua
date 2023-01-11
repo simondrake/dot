@@ -38,6 +38,9 @@ local on_attach = function(client, bufnr)
   elseif client.server_capabilities.documentFormattingProvider then
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
+
+  -- inlay-hints
+  -- require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 return on_attach
