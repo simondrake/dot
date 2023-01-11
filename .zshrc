@@ -11,8 +11,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
 export GOPATH=$HOME/go
 export GOPRIVATE=cd.splunkdev.com
-export GOPROXY=https://repo.splunk.com/artifactory/api/go/go\|\https://proxy.golang.org\|direct
-# export GOPROXY=https://proxy.golang.org\|direct
+# export GOPROXY=https://repo.splunk.com/artifactory/api/go/go\|\https://proxy.golang.org\|direct
+export GOPROXY=https://proxy.golang.org\|direct
 
 # K8s
 export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/remote-config"
@@ -83,8 +83,15 @@ PROMPT=$PROMPT' $(kube_ps1)'
 PROMPT=$PROMPT' $(cloudctl_ps1)'
 # Add on vim mode
 PROMPT=$PROMPT' ${VIMODE}'
-# Add on time and exit code
-PROMPT=$PROMPT' %{$fg[white]%}[%*] $exit_code'
+# Add on time
+PROMPT=$PROMPT' %{$fg[white]%}[%*]'
+# Add on exit code
+# %(?..[%?] ) is a conditional expression.
+# The part between the two dots (nothing in this case) is output if the expression before the first dot is true.
+# The part after the second dot is output if it's false.
+#
+# i.e. This outputs the status code in green if it was successful and red if it failed
+PROMPT=$PROMPT' %(?.$fg[green][%?].$fg[red][%?] )'
 # Add on the new line and $ prompts
 PROMPT=$PROMPT"
 \
