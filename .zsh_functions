@@ -83,6 +83,7 @@ gitreview() {
   nvim -c :G  # Use vim-fugitive for the review
 }
 
+# git reset hard origin
 greho() {
   branch=$(git rev-parse --abbrev-ref HEAD)
   git reset --hard "origin/$branch"
@@ -128,4 +129,12 @@ mkcd () { mkdir -p "$@" && cd "$_"; }
 roied() {
   # \( ! -name . \) avoids executing the command in the current directory.
   find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && $1" \;
+}
+
+# Calculates the number of days between now and a date
+#
+# - Date must be in the format YYYY-MM-DD
+# - Requires gdate which is part of coreutils (brew install coreutils)
+daysuntil() {
+  echo $(expr '(' $(gdate -d "$1" +%s) - $(gdate +%s) + 86399 ')' / 86400) "days"
 }

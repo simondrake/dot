@@ -1,7 +1,9 @@
 local on_attach = require('lsp.on_attach')
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities() --nvim-cmp
 
 local nvim_lsp = require('lspconfig')
 local configs = require('lspconfig/configs')
@@ -30,15 +32,19 @@ nvim_lsp.gopls.setup {
     gopls = {
       buildFlags = { "-tags=integration,smoke" },
       ["local"] = "cd.splunkdev.com",
-      hints = {
-        assignVariableTypes = true,
-        compositeLiteralFields = true,
-        constantValues = true,
-        functionTypeParameters = true,
-        parameterNames = true,
-        rangeVariableTypes = true,
-      }
+      experimentalPostfixCompletions = true,
+      analyses = {
+        nilness = true,
+        shadow = true,
+        unreachable = true,
+        unusedparams = true,
+        unusedvariable = true,
+      },
+      staticcheck = true,
     },
+    init_options = {
+      usePlaceholders = true,
+    }
   },
 }
 

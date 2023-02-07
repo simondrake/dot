@@ -7,8 +7,6 @@ require('packer').startup(function(use)
 
   -- Pluins I'm not sure if I'll keep yet
   -- Testing {
-  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' } }
-  use {'ggandor/leap.nvim' }
   -- }
 
   -- Git {
