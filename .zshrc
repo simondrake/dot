@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/bin:$HOME/go/bin:$PATH
+# Go
+export PATH=/usr/local/go/bin:$PATH
 # Add kubebuilder to PATH
 export PATH=$PATH:/usr/local/kubebuilder/bin
 # Add Terraform to PATH
@@ -146,3 +148,5 @@ if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc' ]; the
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+complete -o nospace -C /opt/homebrew/bin/vault vault

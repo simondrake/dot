@@ -14,13 +14,10 @@ require('plugins/gitsigns')
 require('plugins/telescope')
 require('plugins/nvim-cmp')
 require('plugins/commentary')
--- require('plugins/shade')
-require('plugins/null-ls')
 require('plugins/choosewin')
 require('plugins/trouble')
-require('plugins/leap')
 
-require('plugins/dap').setup()
+-- require('plugins/dap').setup()
 
 --################
 --> LSP
