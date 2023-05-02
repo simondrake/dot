@@ -85,3 +85,9 @@ echo "======================================"
 
 # install dasel
 brew install dasel
+
+echo "======================================"
+echo "Installing coreutils"
+echo "======================================"
+
+brew install coreutils

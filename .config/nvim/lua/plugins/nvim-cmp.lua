@@ -39,7 +39,7 @@ local cmp_kinds = {
 }
 
 cmp.setup({
-  preselect = cmp.PreselectMode.None,
+  preselect = cmp.PreselectMode.Item,
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
@@ -97,7 +97,7 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp', priority = 10 },
-    { name = 'vsnip' },
+    { name = 'vsnip', priority = 9 },
   },{
     { name = 'nvim_lua' },
   },{
@@ -107,7 +107,7 @@ cmp.setup({
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
         end
-      }
+      },
     },
     { name = 'path' },
     { name = 'rg' },

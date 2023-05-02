@@ -139,6 +139,8 @@ autocmd! User GoyoLeave Limelight!
 " l             | Insert, Command-line, Regexp-search (and others. Collectively called "Lang-Arg" pseudo-mode)
 " t             | Terminal
 
+" map 'T :e ~/todo.md<cr>
+" map 'N :e ~/notes.md<cr>
 
 " Splits
 nnoremap <C-H> <C-W><C-H> " LEFT - ctrl-h instead of ctrl-w then h

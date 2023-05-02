@@ -20,3 +20,14 @@ echo "======================================"
 
 # Shellcheck language server
 brew install shellcheck
+
+if ! command -v go &> /dev/null; then
+  echo "Go is not installed and is required to install some language servers"
+  exit 1
+fi
+
+echo "======================================"
+echo "Installing buf-language-server"
+echo "======================================"
+
+go install github.com/bufbuild/buf-language-server/cmd/bufls@latest

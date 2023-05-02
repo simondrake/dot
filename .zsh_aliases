@@ -7,6 +7,9 @@ alias vf='vim $(fzf)'
 # Only show modified/deleted files
 alias gvf='vim $(git ls-files -md --full-name | fzf --bind "f1:execute(vim {} < /dev/tty > /dev/tty 2>&1)")'
 
+# fzf with bat
+alias bfzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+
 # Search hidden files, skip version control ignore files, case-insensitive
 alias agi='ag --hidden --skip-vcs-ignore --ignore-case --ignore ".git"'
 # Same as above, but only returns the files and not the individual lines
@@ -31,6 +34,10 @@ alias nd='terminal-notifier -message "Task has completed!" -title "Terminal"'
 alias vi="nvim"
 alias vim="nvim"
 alias vinone="vim --clean -u DEFAULTS -U NONE -i NONE"
+
+## As well as these aliases
+alias notes="nvim ~/notes.md"
+alias todo="nvim ~/todo.md"
 
 ######## Terraform #######
 # alias cleanLocal="rm -rf ./deploy/terraform && git checkout $(git rev-parse --abbrev-ref HEAD) -- deploy/terraform"

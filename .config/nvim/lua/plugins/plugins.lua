@@ -7,6 +7,18 @@ require('packer').startup(function(use)
 
   -- Pluins I'm not sure if I'll keep yet
   -- Testing {
+  use {
+  "folke/which-key.nvim",
+  config = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    require("which-key").setup {
+      disable = {
+        filetypes = { 'TelescopePrompt' },
+      }
+    }
+  end
+  }
   -- }
 
   -- Git {

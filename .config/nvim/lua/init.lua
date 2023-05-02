@@ -16,6 +16,7 @@ require('plugins/nvim-cmp')
 require('plugins/commentary')
 require('plugins/choosewin')
 require('plugins/trouble')
+require('plugins/vim-rego')
 
 -- require('plugins/dap').setup()
 
@@ -32,6 +33,7 @@ require('lsp/go')
 require('mappings/trouble')
 require('mappings/dap')
 require('mappings/choosewin')
+require('mappings/general')
 
 --################
 --> Autocommands
