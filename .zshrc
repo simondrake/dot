@@ -8,6 +8,7 @@ export PATH=$PATH:/usr/local/kubebuilder/bin
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 # npm global :shrug:
 export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.local/bin:$PATH
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
