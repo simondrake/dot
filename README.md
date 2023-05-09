@@ -9,6 +9,7 @@
 * Install [Node.js](https://nodejs.org/en/)
 * Install [Go](https://go.dev/doc/install)
 
+* Install `oh-my-zsh` - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 * Run the `setup.sh` script
 * Run the `vim.sh` script
 

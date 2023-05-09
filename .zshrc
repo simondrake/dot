@@ -8,6 +8,7 @@ export PATH=$PATH:/usr/local/kubebuilder/bin
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 # npm global :shrug:
 export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.local/bin:$PATH
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
@@ -145,6 +146,23 @@ if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/simondrake/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 [ -f "/Users/simondrake/.ghcup/env" ] && source "/Users/simondrake/.ghcup/env" # ghcup-env
+
+# OS specific instructions
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+    # POSIX compatibility layer and Linux environment emulation for Windows
+elif [[ "$OSTYPE" == "msys" ]]; then
+    # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+elif [[ "$OSTYPE" == "win32" ]]; then
+    # I'm not sure this can happen.
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+    # ...
+else
+    # Unknown.
+fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform

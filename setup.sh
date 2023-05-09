@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Install zsh
+if ! command -v zsh &> /dev/null
+then
+    echo "Install zsh before running this script"
+    exit 1
+fi
+
+if [[ $SHELL != "/bin/zsh" ]]; then
+    echo "Set your shell to zsh before running this script"
+    exit 0
+fi
+
 # Install homebrew
 if ! command -v brew &> /dev/null
 then
@@ -57,13 +69,6 @@ echo "======================================"
 # Install packer
 git clone https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-echo "======================================"
-echo "Installing oh-my-zsh"
-echo "======================================"
-
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "======================================"
 echo "Installing ripgrep"
