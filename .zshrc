@@ -13,8 +13,6 @@ export PATH=~/.local/bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # GO
 export GOPATH=$HOME/go
-export GOPRIVATE=cd.splunkdev.com
-# export GOPROXY=https://repo.splunk.com/artifactory/api/go/go\|\https://proxy.golang.org\|direct
 export GOPROXY=https://proxy.golang.org\|direct
 
 # K8s
@@ -163,6 +161,8 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
 else
     # Unknown.
 fi
+
+if [ -f $HOME/workdot/.zshrc ]; then source $HOME/workdot/.zshrc; fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform

@@ -1,4 +1,4 @@
-local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 
 require('lualine').setup{
   options = {
@@ -20,12 +20,12 @@ require('lualine').setup{
       {
         'filename',
         file_status = false, -- displays file status (readonly status, modified status)
-        path = 2 -- 0 = just filename, 1 = relative path, 2 = absolute path
+        path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
       },
       'lsp_progress',
       {
-        gps.get_location,
-        cond = gps.is_available
+        function() return navic.get_location() end,
+        cond = navic.is_available
       },
     },
     lualine_x = {'encoding', 'filetype'},

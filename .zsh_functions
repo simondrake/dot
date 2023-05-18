@@ -123,7 +123,7 @@ agifwi() {
 ######## Other ############
 mkcd () { mkdir -p "$@" && cd "$_"; }
 
-# run one in each directory
+# run once in each directory
 #
 # Accepts a command to run and runs it in each directory
 roied() {

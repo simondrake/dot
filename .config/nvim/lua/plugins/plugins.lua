@@ -19,6 +19,17 @@ require('packer').startup(function(use)
     }
   end
   }
+
+  use {
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+        "neovim/nvim-lspconfig",
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+        "numToStr/Comment.nvim",        -- Optional
+        "nvim-telescope/telescope.nvim" -- Optional
+    }
+  }
   -- }
 
   -- Git {
@@ -85,9 +96,9 @@ require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use {
-    "SmiteshP/nvim-gps",
-    requires = "nvim-treesitter/nvim-treesitter"
-  }
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+}
   use { 'arkav/lualine-lsp-progress' } -- LSP progress in lualine
   -- }
 
