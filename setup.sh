@@ -7,7 +7,7 @@ then
     exit 1
 fi
 
-if [[ $SHELL != "/bin/zsh" ]]; then
+if [[ $SHELL != "/usr/bin/zsh" ]]; then
     echo "Set your shell to zsh before running this script"
     exit 0
 fi

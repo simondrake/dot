@@ -17,6 +17,7 @@
 
 * Run the `go.sh` script
 * Run the `lsp.sh` script to set-up nvim LSP specific things
+* Run the `rust.sh` script
 
 ## Optional
 
