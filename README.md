@@ -28,6 +28,16 @@
 * Run `packages.sh`
 * Run `drop-down-term.sh` to install iterm2. Instructions to emulate drop-down-term are in the script.
 
+## Firefox
+
+* `sudo cp firefox-prefs/config.js /opt/firefox/config.js`
+* `sudo cp firefox-prefs/autoconfig.js /opt/firefox/defaults/pref/autoconfig.js`
+
+### Extensions
+
+* Bitwarden
+* [Ctrl+Number to switch tabs](https://addons.mozilla.org/firefox/addon/ctrl-number-to-switch-tabs/)
+* uBlock
 
 ### Apps
 * [Skitch](https://evernote.com/products/skitch) OR [Lightshot](https://app.prntscr.com/en/index.html)
