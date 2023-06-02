@@ -39,7 +39,7 @@ local cmp_kinds = {
 }
 
 cmp.setup({
-  preselect = cmp.PreselectMode.Item,
+  -- preselect = cmp.PreselectMode.Item,
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.

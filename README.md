@@ -19,6 +19,8 @@
 * Run the `lsp.sh` script to set-up nvim LSP specific things
 * Run the `rust.sh` script
 
+* Set-up git configs - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
+
 ## Optional
 
 * Run `fontSetup.sh` for instructions on how to install Fira Code

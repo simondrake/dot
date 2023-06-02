@@ -7,4 +7,4 @@ then
 fi
 
 ## rust-analyzer
-rustup component add rust-src
+rustup component add rust-analyzer
