@@ -113,6 +113,9 @@ require('packer').startup(function(use)
     use { 'vim-test/vim-test' }
     -- Markdown
     use { 'dhruvasagar/vim-table-mode' }
+    -- Rust
+    use { 'simrat39/rust-tools.nvim' }
+
   -- }
 
   -- Terminal {

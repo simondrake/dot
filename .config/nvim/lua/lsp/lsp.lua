@@ -49,31 +49,32 @@ nvim_lsp.gopls.setup {
   },
 }
 
-nvim_lsp.rust_analyzer.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "rust-analyzer" },
-  filetypes = { "rust" },
-  root_dir = util.root_pattern("Cargo.toml", "rust-project.json"),
-  settings = {
-    ["rust-analyzer"] = {
-      imports = {
-        granularity = {
-            group = "module",
-        },
-        prefix = "self",
-      },
-      cargo = {
-        buildScripts = {
-            enable = true,
-        },
-      },
-      procMacro = {
-        enable = true
-      },
-    }
-    }
-})
+-- ### Handled by rust-rools ###
+-- nvim_lsp.rust_analyzer.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = { "rust-analyzer" },
+--   filetypes = { "rust" },
+--   root_dir = util.root_pattern("Cargo.toml", "rust-project.json"),
+--   settings = {
+--     ["rust-analyzer"] = {
+--       imports = {
+--         granularity = {
+--             group = "module",
+--         },
+--         prefix = "self",
+--       },
+--       cargo = {
+--         buildScripts = {
+--             enable = true,
+--         },
+--       },
+--       procMacro = {
+--         enable = true
+--       },
+--     }
+--     }
+-- })
 
 nvim_lsp.bufls.setup({
   on_attach = on_attach,
@@ -83,12 +84,12 @@ nvim_lsp.bufls.setup({
   root_dir = util.root_pattern("buf.work.yaml", ".git"),
 })
 
--- nvim_lsp.tsserver.setup {
---    on_attach = function(client, _)
---      client.server_capabilities.documentFormattingProvider = false
---      vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format()')
---    end
---  }
+nvim_lsp.tsserver.setup {
+   on_attach = function(client, _)
+     client.server_capabilities.documentFormattingProvider = false
+     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format()')
+   end
+ }
 
 local servers = { 'vimls', 'terraformls' }
 for _, lsp in ipairs(servers) do
