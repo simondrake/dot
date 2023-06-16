@@ -17,6 +17,7 @@ require('plugins/choosewin')
 require('plugins/trouble')
 require('plugins/vim-rego')
 require('plugins/rust-tools')
+require('plugins/vim-markdown')
 
 -- require('plugins/dap').setup()
 

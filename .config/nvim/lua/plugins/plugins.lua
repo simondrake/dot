@@ -112,6 +112,10 @@ require('packer').startup(function(use)
     use { 'tsandall/vim-rego'}
     use { 'vim-test/vim-test' }
     -- Markdown
+    use {
+      'preservim/vim-markdown',
+      requires = 'godlygeek/tabular',
+    }
     use { 'dhruvasagar/vim-table-mode' }
     -- Rust
     use { 'simrat39/rust-tools.nvim' }
