@@ -1,5 +1,4 @@
 function decorated_yank()
-  vim.wo.number = true
   local file_name = vim.fn.expand('%')
   local decoration = string.rep('-', string.len(file_name)+1)
   local lines = get_visual_selection()
