@@ -7,29 +7,7 @@ require('packer').startup(function(use)
 
   -- Pluins I'm not sure if I'll keep yet
   -- Testing {
-  use {
-  "folke/which-key.nvim",
-  config = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-    require("which-key").setup {
-      disable = {
-        filetypes = { 'TelescopePrompt' },
-      }
-    }
-  end
-  }
 
-  use {
-    "SmiteshP/nvim-navbuddy",
-    requires = {
-        "neovim/nvim-lspconfig",
-        "SmiteshP/nvim-navic",
-        "MunifTanjim/nui.nvim",
-        "numToStr/Comment.nvim",        -- Optional
-        "nvim-telescope/telescope.nvim" -- Optional
-    }
-  }
   -- }
 
   -- Git {
@@ -111,11 +89,8 @@ require('packer').startup(function(use)
     use { 'bufbuild/vim-buf'}
     use { 'tsandall/vim-rego'}
     use { 'vim-test/vim-test' }
+    use { 'terrastruct/d2-vim' }
     -- Markdown
-    use {
-      'preservim/vim-markdown',
-      requires = 'godlygeek/tabular',
-    }
     use { 'dhruvasagar/vim-table-mode' }
     -- Rust
     use { 'simrat39/rust-tools.nvim' }

@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["d2-vim"] = {
+    loaded = true,
+    path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/d2-vim",
+    url = "https://github.com/terrastruct/d2-vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -194,11 +199,6 @@ _G.packer_plugins = {
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
-  ["nvim-gps"] = {
-    loaded = true,
-    path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/nvim-gps",
-    url = "https://github.com/SmiteshP/nvim-gps"
-  },
   ["nvim-lint"] = {
     loaded = true,
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/nvim-lint",
@@ -208,6 +208,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -228,6 +233,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  tabular = {
+    loaded = true,
+    path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/tabular",
+    url = "https://github.com/godlygeek/tabular"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -268,6 +283,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/vim-jsonnet",
     url = "https://github.com/google/vim-jsonnet"
+  },
+  ["vim-markdown"] = {
+    loaded = true,
+    path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/vim-markdown",
+    url = "https://github.com/preservim/vim-markdown"
   },
   ["vim-protobuf"] = {
     loaded = true,
@@ -323,20 +343,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
-  },
-  ["which-key.nvim"] = {
-    config = { "\27LJ\2\n°\1\0\0\5\0\f\0\0196\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0005\2\n\0005\3\b\0005\4\a\0=\4\t\3=\3\v\2B\0\2\1K\0\1\0\fdisable\1\0\0\14filetypes\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0" },
-    loaded = true,
-    path = "/home/sdrake/.local/share/nvim/site/pack/packer/start/which-key.nvim",
-    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n°\1\0\0\5\0\f\0\0196\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0005\2\n\0005\3\b\0005\4\a\0=\4\t\3=\3\v\2B\0\2\1K\0\1\0\fdisable\1\0\0\14filetypes\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

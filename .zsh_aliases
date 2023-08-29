@@ -7,6 +7,8 @@ alias vf='vim $(fzf)'
 # Only show modified/deleted files
 alias gvf='vim $(git ls-files -md --full-name | fzf --bind "f1:execute(vim {} < /dev/tty > /dev/tty 2>&1)")'
 
+alias cpn='copy-paste-notes'
+
 # fzf with bat
 alias bfzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
@@ -72,6 +74,8 @@ alias ken="kubectl edit networks"
 alias kepj="kubectl edit provisioningjobs"
 
 alias kgs="kubectl get stacks"
+alias kgsjson="kubectl get stacks -o json"
+
 alias kgps="kubectl get phantomstacks"
 alias kgn="kubectl get networks"
 alias kgpj="kubectl get provisioningjobs"

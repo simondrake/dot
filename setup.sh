@@ -58,7 +58,6 @@ echo "======================================"
 echo "Installing zsh-completions"
 echo "======================================"
 
-
 # Install zsh-completions
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 

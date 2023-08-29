@@ -89,6 +89,12 @@ greho() {
   git reset --hard "origin/$branch"
 }
 
+# Create tag and push to origin
+gtap() {
+  git tag "$1"
+  git push origin --tags
+}
+
 ######## Other ############
 cleanLocal() {
   branch=$(git rev-parse --abbrev-ref HEAD)

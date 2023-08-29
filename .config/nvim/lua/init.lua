@@ -40,3 +40,9 @@ require('mappings/general')
 --> Autocommands
 --################
 require('autocommands')
+
+
+--################
+--> functions
+--################
+require('functions/general')

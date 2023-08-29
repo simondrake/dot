@@ -33,7 +33,6 @@ ZSH_THEME="ys"
 HISTCONTROL=ignorespace
 
 plugins=(dotenv history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
-# plugins=(zsh-syntax-highlighting)
 
 ZSH_DOTENV_FILE=local.env
 ZSH_DOTENV_PROMPT=false
@@ -48,6 +47,7 @@ PROMPT_EOL_MARK=''
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_aliases
 source $HOME/.zsh_functions
+source $HOME/.zsh_cpn
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 ZSH_HIGHLIGHT_STYLES[comment]=fg=245

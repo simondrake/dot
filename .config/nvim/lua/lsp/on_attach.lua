@@ -1,5 +1,4 @@
 local navic = require("nvim-navic")
-local navbuddy = require("nvim-navbuddy")
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -17,8 +16,8 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-y>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('i', '<C-y>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  -- buf_set_keymap('n', '<C-y>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  -- buf_set_keymap('i', '<C-y>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', 'R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', 'gar', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '[g', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -54,11 +53,6 @@ local on_attach = function(client, bufnr)
   -- nvim-navic
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
-  end
-
-  -- nvim-navbuddy
-  if client.server_capabilities.documentSymbolProvider then
-    navbuddy.attach(client, bufnr)
   end
 end
 

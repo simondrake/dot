@@ -211,6 +211,15 @@ endfunction
 vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr) > 0\|exec '/'.g:srchstr\|endif<CR>
 vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|exec '?'.g:srchstr\|endif<CR>
 
+" function! s:decoratedYank()
+"     redir @n | silent! '<,'>number | redir END
+"     let filename=expand("%")
+"     let decoration=repeat('-', len(filename)+1)
+"     let @*=decoration . "\n" . filename . ':' . "\n" . decoration . "\n" . @n
+" endfunction
+
+" vn <C-y> :call <SID>decoratedYank()<CR>
+
 "================================
 " Autocmds
 "================================
