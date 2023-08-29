@@ -4,10 +4,14 @@ require('packer').startup(function(use)
   -- Packer can manage itself
   use { 'wbthomason/packer.nvim' }
 
+  -- Pluins I'm developing locally
+  -- Local Development {
+  -- use '~/development/personal/neovim/plugins/decorated_yank'
+
+  -- }
 
   -- Pluins I'm not sure if I'll keep yet
   -- Testing {
-
   -- }
 
   -- Git {
@@ -23,6 +27,7 @@ require('packer').startup(function(use)
   use { 'mg979/vim-visual-multi', branch = 'master' }		                            -- Multiple cursors
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }                                                                                 -- Diagnostics etc
   use { 't9md/vim-choosewin' }                                                      -- Nicer way to jump to panes
+  use { 'simondrake/decorated_yank' }
   -- }
 
   -- Neovim 0.5 {
