@@ -1,8 +1,11 @@
 local opts = { silent=true, noremap=true }
 
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",opts)
-vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>",opts)
-vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>",opts)
-vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",opts)
-vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",opts)
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",opts)
+vim.keymap.set("n", "<leader>xx", function() require("trouble").open() end)
+vim.keymap.set("n", "<leader>q", function() require("trouble").open("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").open("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").open("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").open("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").open("lsp_references") end)
+
+vim.keymap.set("n", "<leader>j", function() require("trouble").previous({skip_groups = true, jump = true}) end)
+vim.keymap.set("n", "<leader>k", function() require("trouble").next({skip_groups = true, jump = true}) end)

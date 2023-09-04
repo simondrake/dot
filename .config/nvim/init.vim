@@ -85,35 +85,6 @@ set tabpagemax=50
 " --ignore ignore files/directories matching pattern
 let $FZF_DEFAULT_COMMAND='ag --files-with-matches --ignore-case --skip-vcs-ignore --hidden --ignore .git'
 
-" Journaling
-let g:journal_file = '~/.journal.md'
-function! ToggleJournal()  " quickly jump to and from journal
-  if expand('%:p') != expand(g:journal_file)  " open journal and set theme
-    let g:journal_last_tab = tabpagenr()
-    tabnew
-    execute 'edit' g:journal_file
-    silent! loadview  " load stored view so we always return to the same place
-    Goyo120
-  else
-    mkview  " store our view of the file so it can be restored
-    quit  " quit Goyo mode
-    silent write
-    if get(g:, "journal_from_zsh", 0) == 1
-      quitall  " easy close back to shell
-    else
-      quit  " quit original tab
-    endif
-    execute 'tabnext ' . g:journal_last_tab
-  endif
-endfunction
-
-" open and close journal
-nnoremap <silent> <leader>j :call ToggleJournal()<CR>
-
-" sync Limelight with Goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
 "================================
 " Mappings
 "================================
@@ -172,28 +143,6 @@ nnoremap gr <cmd>lua require('telescope.builtin').lsp_references({file_ignore_pa
 " Find references, including test files
 nnoremap <leader>gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
 
-" List Navigation
-" see :help quickfix for more
-" 				Previous Entry
-nnoremap <leader>j :cprevious<CR>
-" 				Next Entry
-nnoremap <leader>k :cnext<CR>
-" 				Close the List window
-nnoremap <leader>l :cclose<CR>
-
-" Quickly insert an empty new line
-nnoremap <leader>oo i<CR><ESC>
-
-" vim-floaterm
-nnoremap   <silent>   <leader>fn    :FloatermNew<CR>
-tnoremap   <silent>   <leader>fn    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <leader>fp    :FloatermPrev<CR>
-tnoremap   <silent>   <leader>fp    <C-\><C-n>:FloatermPrev<CR>
-nnoremap   <silent>   <F9>    :FloatermNext<CR>
-tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <leader>ft   :FloatermToggle<CR>
-tnoremap   <silent>   <leader>ft   <C-\><C-n>:FloatermToggle<CR>
-
 " Search in Visual Selection
 " Select the text in visual mode and then do a normal search with /
 function! RangeSearch(direction)
@@ -211,15 +160,6 @@ endfunction
 vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr) > 0\|exec '/'.g:srchstr\|endif<CR>
 vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|exec '?'.g:srchstr\|endif<CR>
 
-" function! s:decoratedYank()
-"     redir @n | silent! '<,'>number | redir END
-"     let filename=expand("%")
-"     let decoration=repeat('-', len(filename)+1)
-"     let @*=decoration . "\n" . filename . ':' . "\n" . decoration . "\n" . @n
-" endfunction
-
-" vn <C-y> :call <SID>decoratedYank()<CR>
-
 "================================
 " Autocmds
 "================================
@@ -229,13 +169,6 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
     autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-
-"### Restore cursor position upon reopening the file
-" augroup last_cursor_position
-"   autocmd!
-"   autocmd BufReadPost *
-"     \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
-" augroup END
 
 "================================
 " Lua

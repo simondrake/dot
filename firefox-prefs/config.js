@@ -11,6 +11,7 @@ try {
         if (window._gBrowser) {
           ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	  // Disable keys
+	  // view-source:chrome://browser/content/browser.xhtml
           let keys = ["key_openDownloads"];
           for (var i=0; i < keys.length; i++) {
              let keyCommand = window.document.getElementById(keys[i]);
