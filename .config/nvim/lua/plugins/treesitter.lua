@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {"go", "lua", "vim"},
+  ensure_installed = {"go", "lua", "vim", "rust"},
 
   -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
@@ -15,6 +15,9 @@ require'nvim-treesitter.configs'.setup {
       scope_incremental = "grc",
       node_decremental = "grm",
     },
+  },
+  indent = {
+    enable = true
   },
 }
 

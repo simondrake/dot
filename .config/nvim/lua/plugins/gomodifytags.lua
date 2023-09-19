@@ -1,0 +1,1 @@
+-- require('gomodifytags.nvim').setup()

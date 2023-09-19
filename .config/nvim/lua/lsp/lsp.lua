@@ -11,19 +11,31 @@ local util = require "lspconfig/util"
 
 nvim_lsp.vimls.setup {
   default_config = {
-    cmd = { 'vim-language-server', '--stdio' };
-    filetypes = { 'vim' };
+    cmd = { 'vim-language-server', '--stdio' },
+    filetypes = { 'vim' },
     root_dir = function(fname)
       return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-    end;
-    settings = {};
-  };
+    end,
+    settings = {},
+  },
 }
+
+local get_current_gomod = function()
+  local file = io.open("go.mod", "r")
+  if file == nil then
+    return nil
+  end
+
+  local first_line = file:read()
+  local mod_name = first_line:gsub("module ", "")
+  file:close()
+  return mod_name
+end
 
 nvim_lsp.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  --cmd = {"gopls", "-rpc.trace", "-logfile", "/tmp/gopls.log", "serve"},
+  -- cmd = {"gopls", "-rpc.trace", "-logfile", "/tmp/gopls.log", "serve"},
   cmd = { "gopls", "serve" },
   filetypes = { "go", "gomod" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
@@ -31,7 +43,7 @@ nvim_lsp.gopls.setup {
   settings = {
     gopls = {
       buildFlags = { "-tags=integration,smoke" },
-      ["local"] = "cd.splunkdev.com",
+      ["local"] = get_current_gomod(),
       experimentalPostfixCompletions = true,
       analyses = {
         nilness = true,
@@ -85,11 +97,42 @@ nvim_lsp.bufls.setup({
 })
 
 nvim_lsp.tsserver.setup {
-   on_attach = function(client, _)
-     client.server_capabilities.documentFormattingProvider = false
-     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format()')
-   end
- }
+  on_attach = function(client, _)
+    client.server_capabilities.documentFormattingProvider = false
+    vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format()')
+  end
+}
+
+nvim_lsp.lua_ls.setup {
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+      client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using
+            -- (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT'
+          },
+          -- Make the server aware of Neovim runtime files
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              vim.env.VIMRUNTIME
+              -- "${3rd}/luv/library"
+              -- "${3rd}/busted/library",
+            }
+            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+            -- library = vim.api.nvim_get_runtime_file("", true)
+          }
+        }
+      })
+
+      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    end
+    return true
+  end
+}
 
 local servers = { 'vimls', 'terraformls' }
 for _, lsp in ipairs(servers) do
@@ -98,10 +141,10 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
     root_dir = function(fname)
       return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
-    end;
+    end,
     flags = {
       debounce_did_change_notify = 250,
-    };
+    },
   }
 end
 

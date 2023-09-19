@@ -43,3 +43,8 @@ echo "======================================"
 # Install gopls
 go install golang.org/x/tools/gopls@latest
 
+echo "======================================"
+echo "Installing gomodifytags"
+echo "======================================"
+
+go install github.com/fatih/gomodifytags@latest

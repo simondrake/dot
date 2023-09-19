@@ -31,6 +31,8 @@ set nobackup
 set noswapfile
 set undofile
 
+set cmdheight=2
+
 filetype plugin on
 syntax on
 
@@ -48,15 +50,15 @@ set termguicolors
 
 "--- Theme ---"
 """ Gruvbox
-let g:gruvbox_italic = 1
-let g:gruvbox_italicize_comments = 1
-let g:gruvbox_transparent_bg = 0
-let g:gruvbox_contrast_light = "medium"
+" let g:gruvbox_italic = 1
+" let g:gruvbox_italicize_comments = 1
+" let g:gruvbox_transparent_bg = 0
+" let g:gruvbox_contrast_light = "medium"
 " set background=dark    " Setting dark mode
 "set background=light   " Setting light mode
 "colorscheme gruvbox
 
-colorscheme kanagawa
+"colorscheme kanagawa
 
 """ Git Diff
 """" cterm - sets the style
@@ -175,7 +177,3 @@ augroup END
 "================================
 
 luafile $HOME/.config/nvim/lua/init.lua
-
-
-" goimports on save
-autocmd BufWritePre *.go lua OrgImports(1000)

@@ -1,7 +1,25 @@
 --################
+--> lazy.nvim
+--################
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('plugins/lazy')
+
+--################
 --> Plugins
 --################
-require('plugins/plugins')
+-- require('plugins/plugins')
 
 --################
 --> Plugin Configuration
@@ -18,6 +36,9 @@ require('plugins/trouble')
 require('plugins/vim-rego')
 require('plugins/rust-tools')
 require('plugins/vim-markdown')
+-- require('plugins/hardtime')
+require('plugins/decorated_yank')
+require('plugins/gomodifytags')
 
 -- require('plugins/dap').setup()
 
@@ -26,7 +47,6 @@ require('plugins/vim-markdown')
 --################
 require('lsp/on_attach')
 require('lsp/lsp')
-require('lsp/go')
 
 --################
 --> Mappings
@@ -41,8 +61,15 @@ require('mappings/general')
 --################
 require('autocommands')
 
+--################
+--> Commands
+--################
+require('commands/general')
 
 --################
 --> functions
 --################
 require('functions/general')
+
+
+require('gomodifytags').setup()

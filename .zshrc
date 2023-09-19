@@ -20,8 +20,6 @@ export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/remote-config"
 
 export REVIEW_BASE="origin/mainline"
 
-export CO2_AUTH_DISABLED=true
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
