@@ -1,0 +1,17 @@
+# git config --global core.excludesfile ~/.gitignore_global
+
+
+###################################
+# => IDE Specific
+###################################
+# Goland
+.idea/
+# Vim
+## Vimspector
+.vimspector.json
+__debug_bin
+
+
+
+
+

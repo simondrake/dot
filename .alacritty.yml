@@ -1,0 +1,88 @@
+key_bindings:
+  - { key: Key3,    mods: Alt,        chars: "#"  }
+  - { key: N,       mods: Command,    action: CreateNewWindow }
+
+font:
+  family: Fira Code Light
+  size: 12.0
+
+scrolling:
+  history: 10000
+
+# env:
+#   TERM: xterm-256color
+
+# Colors (Kanagawa)
+colors:
+  # Default colors
+  primary:
+    background: '0x1f1f28'
+    foreground: '0xdcd7ba'
+
+  # Normal colors
+  normal:
+    black:   '0x090618'
+    red:     '0xc34043'
+    green:   '0x76946a'
+    yellow:  '0xc0a36e'
+    blue:    '0x7e9cd8'
+    magenta: '0x957fb8'
+    cyan:    '0x6a9589'
+    white:   '0xc8c093'
+
+  # Bright colors
+  bright:
+    black:   '0x727169'
+    red:     '0xe82424'
+    green:   '0x98bb6c'
+    yellow:  '0xe6c384'
+    blue:    '0x7fb4ca'
+    magenta: '0x938aa9'
+    cyan:    '0x7aa89f'
+    white:   '0xdcd7ba'
+  selection:
+    background: '0x2d4f67'
+    foreground: '0xc8c093'
+
+  indexed_colors:
+    - { index: 16, color: '0xffa066' }
+    - { index: 17, color: '0xff5d62' }
+
+# # Colors (Gruvbox light)
+# colors:
+#   # Default colors
+#   primary:
+#     # hard contrast: background = '0xf9f5d7'
+#     background: '0xfbf1c7'
+#     # soft contrast: background = '0xf2e5bc'
+#     foreground: '0x3c3836'
+
+#   # Normal colors
+#   normal:
+#     black:   '0xfbf1c7'
+#     red:     '0xcc241d'
+#     green:   '0x98971a'
+#     yellow:  '0xd79921'
+#     blue:    '0x458588'
+#     magenta: '0xb16286'
+#     cyan:    '0x689d6a'
+#     white:   '0x7c6f64'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x928374'
+#     red:     '0x9d0006'
+#     green:   '0x79740e'
+#     yellow:  '0xb57614'
+#     blue:    '0x076678'
+#     magenta: '0x8f3f71'
+#     cyan:    '0x427b58'
+#     white:   '0x3c3836'
+
+# Start tmux automatically on launch
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - -l
+#     - -c
+#     - "tmux attach || tmux"

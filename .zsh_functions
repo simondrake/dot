@@ -1,0 +1,146 @@
+# Auto-complete Makefile targets
+function _makefile_targets {
+    local curr_arg;
+    local targets;
+
+    # Find makefile targets available in the current directory
+    targets=''
+    if [[ -e "$(pwd)/Makefile" ]]; then
+        targets=$( \
+            grep -oE '^[a-zA-Z0-9_-]+:' Makefile \
+            | sed 's/://' \
+            | tr '\n' ' ' \
+        )
+    fi
+
+    # Filter targets based on user input to the bash completion
+    curr_arg=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "${targets[@]}" -- $curr_arg ) );
+}
+complete -F _makefile_targets make
+
+# Time ZSH initialisation
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+######## GIT ############
+# The name of the current branch
+# Back-compatibility wrapper for when this function was defined here in
+# the plugin, before being pulled in to core lib/git.zsh as git_current_branch()
+# to fix the core -> git plugin dependency.
+function current_branch() {
+  git_current_branch
+}
+
+# Delete branches that aren't the main branch
+function clear_branches() {
+  for i in $(git branch | grep -v -i $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') ); do git branch -D "$i"; done
+}
+
+# Debugs what branches clear_branches will delete
+function clear_branches_debug() {
+  for i in $(git branch | grep -v -i $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') ); do echo "would delete: '$i'"; done
+}
+
+# Checkout the main branch
+function gcmain() {
+  git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+}
+
+# Rebase HEAD~N
+grih() {
+	git rebase --interactive HEAD~$1
+}
+
+# Update forked repo with rebase
+gufr() {
+  # Have to use else/elif because exit 1 would cause
+  # the terminal window to close
+  if [ -z "$1" ]; then
+    echo "original repo address must be specified"
+  elif [ -z "$2" ]; then
+    echo "upstream branch must be specified"
+  else
+    git remote add upstream "$1"
+    git fetch upstream
+    git rebase "upstream/$2"
+  fi
+}
+
+gcmsgnv() {
+  git commit -m "$1" --no-verify
+}
+
+gitreview() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  mainBranch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+  echo "reviewing '$branch' from main branch 'origin/$mainBranch'"
+  git reset --soft "origin/$mainBranch"
+  git reset # Make everything unstaged
+  git add -N .
+  nvim -c :G  # Use vim-fugitive for the review
+}
+
+# git reset hard origin
+greho() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  git reset --hard "origin/$branch"
+}
+
+# Create tag and push to origin
+gtap() {
+  git tag "$1"
+  git push origin --tags
+}
+
+######## Other ############
+cleanLocal() {
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  echo "resetting to $branch"
+  rm -rf ./deploy/terraform && git checkout "$branch" -- deploy/terraform
+}
+
+######## Search ############
+# ag
+# -> ignore-case
+# -> with ignore pattern
+# ---> First argument is the text to search
+# ---> Second argument onwards are the patterns to ignore
+agiwi() {
+  # "$1" -> First argument
+  # "${@:2}" -> Second argument onwards
+  agi "$1" -p <(printf "*%s*\n" "${@:2}")
+}
+
+# ag
+# -> ignore-case
+# -> file names only
+# -> with ignore pattern
+# ---> First argument is the text to search
+# ---> Second argument onwards are the patterns to ignore
+agifwi() {
+  # "$1" -> First argument
+  # "${@:2}" -> Second argument onwards
+  agif "$1" -p <(printf "*%s*\n" "${@:2}")
+}
+
+######## Other ############
+mkcd () { mkdir -p "$@" && cd "$_"; }
+
+# run once in each directory
+#
+# Accepts a command to run and runs it in each directory
+roied() {
+  # \( ! -name . \) avoids executing the command in the current directory.
+  find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && $1" \;
+}
+
+# Calculates the number of days between now and a date
+#
+# - Date must be in the format YYYY-MM-DD
+# - Requires gdate which is part of coreutils (brew install coreutils)
+daysuntil() {
+  echo $(expr '(' $(gdate -d "$1" +%s) - $(gdate +%s) + 86399 ')' / 86400) "days"
+}
