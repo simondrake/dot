@@ -21,7 +21,7 @@ require("lazy").setup({
 
 	-- Local Development {
 	-- { dir = "~/development/personal/neovim/plugins/toggle_export" },
-	{ dir = "~/development/personal/neovim/plugins/decorated_yank", dependencies = { "nvim-lua/plenary.nvim" } },
+	-- { dir = "~/development/personal/neovim/plugins/decorated_yank", dependencies = { "nvim-lua/plenary.nvim" } },
 	-- {
 	--   dir = '~/development/personal/neovim/plugins/gomodifytags',
 	--   dependencies = { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
@@ -44,7 +44,7 @@ require("lazy").setup({
 	{ "tpope/vim-sensible" },
 	{ "mg979/vim-visual-multi", branch = "master" },
 	{ "folke/trouble.nvim", dependencies = "kyazdani42/nvim-web-devicons" },
-	-- { "simondrake/decorated_yank", dependencies = { "nvim-lua/plenary.nvim" } },
+	{ "simondrake/decorated_yank", dependencies = { "nvim-lua/plenary.nvim" } },
 	{ "simondrake/toggle_export" },
 	{
 		"simondrake/gomodifytags",

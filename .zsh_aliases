@@ -146,6 +146,8 @@ alias gshc='git stash clear'
 alias gshl='git stash list'
 alias gshp='git stash pop'
 
+alias latestTag='git tag -l | sort -V | tail -n 1'
+
 
 ######## Docker Commands #######
 
