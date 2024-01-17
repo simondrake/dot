@@ -13,8 +13,6 @@
 * Run the `setup.sh` script
 * Run the `vim.sh` script
 
-* Open vim and run `:PackerInstall`
-
 * Run the `go.sh` script
 * Run the `lsp.sh` script to set-up nvim LSP specific things
 * Run the `rust.sh` script

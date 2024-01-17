@@ -58,7 +58,7 @@ set termguicolors
 "set background=light   " Setting light mode
 "colorscheme gruvbox
 
-"colorscheme kanagawa
+" colorscheme kanagawa
 
 """ Git Diff
 """" cterm - sets the style

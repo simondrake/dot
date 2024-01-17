@@ -60,13 +60,6 @@ echo "======================================"
 git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}"/plugins/zsh-completions
 
 echo "======================================"
-echo "Installing packer"
-echo "======================================"
-
-# Install packer
-git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-echo "======================================"
 echo "Installing ripgrep"
 echo "======================================"
 
