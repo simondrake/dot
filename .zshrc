@@ -11,6 +11,10 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH=~/.local/bin:$PATH
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# NATS
+export PATH=~/.nsccli/bin:$PATH
+export NSC_HOME=~/.nsc
+export NKEYS_PATH=~/.nkeys
 # GO
 export GOPATH=$HOME/go
 export GOPROXY=https://proxy.golang.org\|direct
