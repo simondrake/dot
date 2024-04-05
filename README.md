@@ -3,6 +3,59 @@
 * `git remote add origin https://github.com/simondrake/dot.git`
 * `git pull`
 
+## Work related files
+
+To keep work stuff in a work-related VCS, these dot files utilise the following patterns:
+
+#### ZSH config.
+
+If the `~/workdot/.zshrc` file exists, it will be sourced and used. Use this to define work-related aliases, scripts etc.
+
+#### Nvim config
+
+If the `~/.config/nvim/lua/work` directory exists, it will overload the existing configuration.
+
+For example, if the base configuration specifies:
+
+```lua
+require("decorated_yank").setup({
+	domains = {
+		github = {
+			url = "github.com",
+			blob = "/blob/",
+			line_format = "#L%s-L%s",
+		},
+	},
+})
+```
+
+Create a `init.lua` file, and `plugins` directory, in `~/.config/nvim/lua/work/`.
+
+```lua
+-- init.lua
+require("work/plugins/decorated_yank")
+```
+
+```lua
+-- plugins/decorated_yank.lua
+require("decorated_yank").setup({
+	domains = {
+		github = {
+			url = "github.com",
+			blob = "/blob/",
+			line_format = "#L%s-L%s",
+		},
+		currentOrg = {
+			url = "your.org.domain",
+			blob = "/-/blob/",
+			line_format = "#L%s-%s",
+		},
+	},
+})
+```
+
+The configuration will then be overloaded to include `currentOrg`.
+
 ## Setup
 
 * Install [Homebrew](https://brew.sh/)

@@ -35,17 +35,19 @@ alias nd='terminal-notifier -message "Task has completed!" -title "Terminal"'
 ######## Vim #######
 alias vi="nvim"
 alias vim="nvim"
+alias oldvim='NVIM_APPNAME="nvim-bak" nvim'
 alias vinone="vim --clean -u DEFAULTS -U NONE -i NONE"
 
 ## As well as these aliases
 alias notes="nvim ~/notes.md"
 alias todo="nvim ~/todo.md"
+alias journal="nvim ~/journal.md"
 
 ######## Terraform #######
 # alias cleanLocal="rm -rf ./deploy/terraform && git checkout $(git rev-parse --abbrev-ref HEAD) -- deploy/terraform"
 
 ######## AWS #######
-alias awslocal="aws --endpoint-url=http://minikube:34566"
+alias awslocal="aws --no-cli-pager --endpoint-url=http://minikube:34566"
 alias localdynamo="aws --endpoint-url=http://minikube:34566 dynamodb"
 alias locals3="aws --endpoint-url=http://minikube:34566 s3"
 

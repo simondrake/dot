@@ -20,7 +20,8 @@ export GOPATH=$HOME/go
 export GOPROXY=https://proxy.golang.org\|direct
 
 # K8s
-export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/remote-config"
+# export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/remote-config"
+export KUBECONFIG="${HOME}/.kube/config"
 
 export REVIEW_BASE="origin/mainline"
 
@@ -36,7 +37,7 @@ ZSH_THEME="ys"
 # Space before command = not added to shell history
 HISTCONTROL=ignorespace
 
-plugins=(dotenv history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(dotenv history-substring-search zsh-autosuggestions zsh-syntax-highlighting ssh-agent)
 
 ZSH_DOTENV_FILE=local.env
 ZSH_DOTENV_PROMPT=false
