@@ -1,5 +1,5 @@
 {
-	"hello world example": {
+  "hello world example": {
     "scope": "go",
     "prefix": "hello",
     "body": "$BLOCK_COMMENT_START Hello World $BLOCK_COMMENT_END"

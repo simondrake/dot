@@ -22,8 +22,8 @@ echo "======================================"
 brew install shellcheck
 
 if ! command -v go &>/dev/null; then
-    echo "Go is not installed and is required to install some language servers"
-    exit 1
+	echo "Go is not installed and is required to install some language servers"
+	exit 1
 fi
 
 echo "======================================"
@@ -85,3 +85,9 @@ echo "Installing golangci-lint-langserver"
 echo "======================================"
 
 go install github.com/nametake/golangci-lint-langserver@latest
+
+echo "======================================"
+echo "Installing vscode-langservers-extracted (jsonls)"
+echo "======================================"
+
+npm i -g vscode-langservers-extracted
