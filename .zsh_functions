@@ -144,3 +144,16 @@ roied() {
 daysuntil() {
   echo $(expr '(' $(gdate -d "$1" +%s) - $(gdate +%s) + 86399 ')' / 86400) "days"
 }
+
+gittagandpush() {
+  git tag "$1"
+  git push origin --tags
+}
+
+# Substitute text in the last command
+## !! - reruns the last command. You can also use !-2 to run two commands ago, !echo to run the last command that starts with echo etc
+## :gs says to do a global (all instances) search/replace. If you wanted to just do replace the first instance, you would use ':s'
+## Finally, /$1/$2/ says to replace the first argument with the second
+# substitute() {
+#   !!:gs/$1/$2
+# }

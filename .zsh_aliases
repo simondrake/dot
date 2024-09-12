@@ -150,7 +150,6 @@ alias gshp='git stash pop'
 
 alias latestTag='git tag -l | sort -V | tail -n 1'
 
-
 ######## Docker Commands #######
 
 # Get latest container ID
