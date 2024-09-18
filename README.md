@@ -1,7 +1,8 @@
 ## Cloning into home directory
 
+* `git init`
 * `git remote add origin https://github.com/simondrake/dot.git`
-* `git pull`
+* `git pull origin main`
 
 ## Work related files
 
