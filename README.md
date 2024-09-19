@@ -62,6 +62,7 @@ The configuration will then be overloaded to include `currentOrg`.
 * Install [Homebrew](https://brew.sh/)
 * Install [Node.js](https://nodejs.org/en/)
 * Install [Go](https://go.dev/doc/install)
+* Install [tmux](https://github.com/tmux/tmux/wiki/Installing)
 
 * Install `oh-my-zsh` - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 * Run the `setup.sh` script
@@ -72,6 +73,10 @@ The configuration will then be overloaded to include `currentOrg`.
 * Run the `rust.sh` script
 
 * Set-up git configs - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
+
+* Install `build-essentials` - `sudo apt-get install build-essential`
+
+* Clone https://github.com/simondrake/kickstart.nvim into ~/.config/nvim
 
 ## Optional
 
