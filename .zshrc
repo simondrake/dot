@@ -18,6 +18,8 @@ export NKEYS_PATH=~/.nkeys
 # GO
 export GOPATH=$HOME/go
 export GOPROXY=https://proxy.golang.org\|direct
+# Homebrew
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 # K8s
 # export KUBECONFIG="${HOME}/.kube/config:${HOME}/.kube/remote-config"
