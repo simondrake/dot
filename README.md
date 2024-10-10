@@ -64,6 +64,7 @@ The configuration will then be overloaded to include `currentOrg`.
 * Install [Go](https://go.dev/doc/install)
 * Install [tmux](https://github.com/tmux/tmux/wiki/Installing)
 
+* Install zsh
 * Install `oh-my-zsh` - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 * Run the `setup.sh` script
 * Run the `vim.sh` script
