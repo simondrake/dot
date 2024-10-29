@@ -55,6 +55,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh_aliases
 source $HOME/.zsh_functions
 source $HOME/.zsh_cpn
+source $HOME/kensington_expert_setup.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 ZSH_HIGHLIGHT_STYLES[comment]=fg=245
