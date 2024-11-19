@@ -30,7 +30,7 @@ export REVIEW_BASE="origin/mainline"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export FZF_DEFAULT_COMMAND='ag --hidden --skip-vcs-ignore -i --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag --follow --hidden --skip-vcs-ignore -i --ignore .git -g ""'
 
 if [ "$TMUX" = "" ]; then tmux; fi
 
