@@ -146,6 +146,11 @@ kcar() {
   printf "$resources" | pbcopy
 }
 
+# kubectl get all resources
+kgar() {
+  kubectl get $1 --no-headers | awk '{print $1}' | tr '\n' ' '
+}
+
 ######## Other ############
 mkcd () { mkdir -p "$@" && cd "$_"; }
 
