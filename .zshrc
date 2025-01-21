@@ -129,16 +129,6 @@ GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
-autoload -Uz compinit && compinit
-
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-  # FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 if which kubectl > /dev/null 2>&1; then
     # zsh kubectl auto-completion
     source <(kubectl completion zsh)
@@ -168,6 +158,16 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
     # ...
 else
     # Unknown.
+fi
+
+autoload -Uz compinit && compinit
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  # FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
 fi
 
 if [ -f $HOME/workdot/.zshrc ]; then source $HOME/workdot/.zshrc; fi

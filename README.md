@@ -75,6 +75,19 @@ The configuration will then be overloaded to include `currentOrg`.
 
 * Set-up git configs - https://www.freecodecamp.org/news/how-to-handle-multiple-git-configurations-in-one-machine/
 
+```
+## .gitconfig
+[includeIf "gitdir:~/development/personal/"]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/development/work/"]
+  path = ~/.gitconfig-work
+
+## .gitconfig-personal
+[user]
+ name = Simon Drake
+ email = email@domain.com
+```
+
 * Install `build-essentials` - `sudo apt-get install build-essential`
 
 * Clone https://github.com/simondrake/kickstart.nvim into ~/.config/nvim
@@ -97,8 +110,21 @@ The configuration will then be overloaded to include `currentOrg`.
 * [Ctrl+Number to switch tabs](https://addons.mozilla.org/firefox/addon/ctrl-number-to-switch-tabs/)
 * uBlock
 
-### Apps
-* [Skitch](https://evernote.com/products/skitch) OR [Lightshot](https://app.prntscr.com/en/index.html)
-* [Rectangle](https://rectangleapp.com/)
-* [Flycut](https://github.com/TermiT/Flycut)
-* [Wally](https://ergodox-ez.com/pages/wally)
+## Apps
+Refer to https://www.simondrake.dev/uses
+
+## Custom Shortcuts
+
+* Name: `Flameshot`, Command: `flameshot gui`, Shortcut: `Print`
+* Name: `Flameshot Timed`, Command: `flameshout gui --delay 2000`, Shortcut: `Shift + Print`
+* Name: `copyq`, Command: `copyq show`, Shortcut: `Shift + Ctrl + K`
+
+* Navigation > `Switch applications` > `Ctrl + Tab`
+* Navigation > `Switch windows of an application` > `Ctrl + \\\``
+
+
+## Other
+
+* Disable `Enhanced Tiling` under `Settings > Ubuntu Desktop`
+* Disable Ubuntu notification badges - `gsettings set org.gnome.shell.extensions.dash-to-dock show-icons-emblems false`
+* Run `ibus-setup` and remove the `Unicode code point` shortcut to remove the `Ctrl + Shift + U` shortcut
