@@ -1,0 +1,66 @@
+font-family = "Hack Nerd Font Mono"
+theme = catppuccin-macchiato
+
+scrollback-limit = 10000
+
+keybind = ctrl+shift+comma=reload_config
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+#keybind = ctrl+shift+v=paste_from_clipboard
+
+## Disable the ghostty keybindings I don't need because tmux
+keybind = ctrl+enter=ignore
+keybind = ctrl+shift+t=ignore
+keybind = super+ctrl+shift+up=ignore
+keybind = super+ctrl+shift+equal=ignore
+keybind = super+ctrl+shift+left=ignore
+keybind = super+ctrl+shift+down=ignore
+keybind = super+ctrl+shift+right=ignore
+keybind = ctrl+alt+shift+j=ignore
+keybind = super+ctrl+right_bracket=ignore
+keybind = super+ctrl+left_bracket=ignore
+keybind = ctrl+alt+up=ignore
+keybind = ctrl+alt+left=ignore
+keybind = ctrl+alt+down=ignore
+keybind = ctrl+alt+right=ignore
+keybind = ctrl+shift+a=ignore
+keybind = ctrl+shift+o=ignore
+keybind = ctrl+shift+c=ignore
+keybind = ctrl+shift+q=ignore
+keybind = ctrl+shift+n=ignore
+keybind = ctrl+shift+page_down=ignore
+keybind = ctrl+shift+left=ignore
+keybind = ctrl+shift+w=ignore
+keybind = ctrl+shift+j=ignore
+keybind = ctrl+shift+right=ignore
+keybind = ctrl+shift+page_up=ignore
+keybind = ctrl+shift+t=ignore
+keybind = ctrl+shift+tab=ignore
+keybind = ctrl+shift+e=ignore
+keybind = ctrl+shift+enter=ignore
+keybind = ctrl+shift+i=ignore
+keybind = alt+five=ignore
+keybind = alt+eight=ignore
+keybind = alt+three=ignore
+keybind = alt+nine=ignore
+keybind = alt+two=ignore
+keybind = alt+four=ignore
+keybind = alt+f4=ignore
+keybind = alt+one=ignore
+keybind = alt+six=ignore
+keybind = alt+seven=ignore
+keybind = ctrl+comma=ignore
+keybind = ctrl+page_down=ignore
+keybind = ctrl+zero=ignore
+keybind = ctrl+page_up=ignore
+keybind = ctrl+tab=ignore
+keybind = ctrl+plus=ignore
+keybind = shift+insert=ignore
+keybind = shift+up=ignore
+keybind = shift+left=ignore
+keybind = shift+page_up=ignore
+keybind = shift+end=ignore
+keybind = shift+right=ignore
+keybind = shift+page_down=ignore
+keybind = shift+down=ignore
+keybind = shift+home=ignore
