@@ -49,12 +49,12 @@ function current_branch() {
 
 # Delete branches that aren't the main branch
 function clear_branches() {
-  for i in $(git branch | grep -v -i $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') ); do git branch -D "$i"; done
+  for i in $(git branch | grep -v '*' | grep -v -i $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') ); do git branch -D "$i"; done
 }
 
 # Debugs what branches clear_branches will delete
 function clear_branches_debug() {
-  for i in $(git branch | grep -v -i $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') ); do echo "would delete: '$i'"; done
+  for i in $(git branch | grep -v '*' | grep -v -i $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') ); do echo "would delete: '$i'"; done
 }
 
 # Checkout the main branch
