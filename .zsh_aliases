@@ -43,6 +43,11 @@ alias notes="nvim ~/notes.md"
 alias todo="nvim ~/todo.md"
 alias journal="nvim ~/journal.md"
 
+######## formatting #######
+alias jsontoyaml="dasel -r json -w yaml"
+alias yamltojson="dasel -r yaml -w json"
+
+
 ######## Terraform #######
 # alias cleanLocal="rm -rf ./deploy/terraform && git checkout $(git rev-parse --abbrev-ref HEAD) -- deploy/terraform"
 

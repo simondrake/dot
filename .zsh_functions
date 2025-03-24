@@ -62,6 +62,31 @@ function gcmain() {
   git checkout $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
 }
 
+# function gitstats() {
+#   zparseopts -E -D -- \
+#            -branch:=o_branch \
+#            -since:=o_since \
+#            -author:=o_author
+
+#   cmd="git log"
+
+#   if [ ! -z "${o_branch[2]}" ]; then
+#     cmd+=" --shortstat ${o_branch[2]}"
+#   fi
+
+#   if [ ! -z "${o_since[2]}" ]; then
+#     cmd+=" --since ${o_since[2]}"
+#   fi
+
+#   if [ ! -z "${o_author[2]}" ]; then
+#     cmd+=" --author ${o_author[2]}"
+#   fi
+
+#   cmd+=" | awk '/^ [0-9]/ { f += \$1; i += \$4; d += \$6 } END { printf(\"%d files changed, %d insertions(+), %d deletions(-)\", f, i, d) }' "
+
+#   eval ${cmd}
+# }
+
 # Rebase HEAD~N
 grih() {
 	git rebase --interactive HEAD~$1
