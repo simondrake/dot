@@ -1,4 +1,9 @@
-font-family = "Hack Nerd Font Mono"
+
+font-family = mononoki
+# font-family = "IBM 3270"
+
+font-size = 14
+
 theme = catppuccin-macchiato
 
 scrollback-limit = 10000
@@ -6,6 +11,7 @@ scrollback-limit = 10000
 keybind = ctrl+shift+comma=reload_config
 keybind = ctrl+equal=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
+
 #keybind = ctrl+shift+v=paste_from_clipboard
 
 ## Disable the ghostty keybindings I don't need because tmux
